@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometry Exercises</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #content-area {
+            min-height: 400px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-3xl font-bold text-center">Trigonometry Exercises</h1>
+    </header>
+    <nav class="bg-gray-800 text-white p-4">
+        <ul class="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-4">
+            <li><a href="#" class="subpage-link hover:bg-blue-500 p-2 rounded" data-file="trig_equations.txt">Solving Trigonometric Equations</a></li>
+            <li><a href="#" class="subpage-link hover:bg-blue-500 p-2 rounded" data-file="basic_identity.txt">Proving Basic Trigonometric Identity</a></li>
+            <li><a href="#" class="subpage-link hover:bg-blue-500 p-2 rounded" data-file="compound_angle.txt">Compounded Angle Formula</a></li>
+            <li><a href="#" class="subpage-link hover:bg-blue-500 p-2 rounded" data-file="double_angle.txt">Double Angle Formula</a></li>
+            <li><a href="#" class="subpage-link hover:bg-blue-500 p-2 rounded" data-file="triple_angle.txt">Triple Angle Formula</a></li>
+            <li><a href="#" class="subpage-link hover:bg-blue-500 p-2 rounded" data-file="sum_product.txt">Sum and Product Formula</a></li>
+        </ul>
+    </nav>
+    <main class="max-w-4xl mx-auto p-4">
+        <div id="content-area" class="bg-white p-6 rounded shadow">
+            <p class="text-gray-600">Select a topic from the navigation menu to view exercises.</p>
+        </div>
+    </main>
+    <footer class="bg-gray-800 text-white text-center p-4 mt-4">
+        <p>© 2025 Trigonometry Exercises</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.subpage-link').forEach(link => {
+            link.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const file = link.getAttribute('data-file');
+                const contentArea = document.getElementById('content-area');
+                contentArea.innerHTML = '<p>Loading...</p>';
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const content = await response.text();
+                    contentArea.innerHTML = content;
+                } catch (error) {
+                    contentArea.innerHTML = '<p class="text-red-500">Error loading content. Please ensure the file exists and try again.</p>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometry Questions</title>
+    <!-- MathJax CDN for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .question-text {
+            margin-bottom: 10px;
+        }
+        .solution {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-left: 4px solid #007bff;
+        }
+        .solution p {
+            margin: 5px 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .solution p.visible {
+            opacity: 1;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trigonometry Triple Angle Formulas Exercises</h1>
+
+    <!-- Question 1 -->
+    <div class="question" id="q1">
+        <div class="question-text">
+            <p>1. Express \(\cot 3x\) in terms of \(\cot x\) only.</p>
+        </div>
+        <button onclick="showSolution('q1')">Show Solution</button>
+        <div class="solution" id="q1-solution">
+            <p>Use the tangent triple angle formula to find \(\cot 3x\).</p>
+            <p>\(\tan 3x = \tan (2x + x) = \frac{\tan 2x + \tan x}{1 - \tan 2x \tan x}\).</p>
+            <p>\(\tan 2x = \frac{2 \tan x}{1 - \tan^2 x}\).</p>
+            <p>Let \(t = \tan x\), so \(\tan 2x = \frac{2t}{1 - t^2}\).</p>
+            <p>\(\tan 3x = \frac{\frac{2t}{1 - t^2} + t}{1 - \frac{2t}{1 - t^2} \cdot t} = \frac{3t - t^3}{1 - 3t^2}\).</p>
+            <p>\(\cot 3x = \frac{1}{\tan 3x} = \frac{1 - 3t^2}{3t - t^3}\).</p>
+            <p>Since \(\cot x = \frac{1}{t} = u\), then \(t = \frac{1}{u}\).</p>
+            <p>Substitute: \(\tan 3x = \frac{\frac{3}{u} - \frac{1}{u^3}}{\frac{1 - \frac{3}{u^2}}{1}} = \frac{3u^2 - 1}{u (u^2 - 3)}\).</p>
+            <p>\(\cot 3x = \frac{u (u^2 - 3)}{3u^2 - 1}\).</p>
+            <p>Final answer: \(\cot 3x = \frac{\cot x (\cot^2 x - 3)}{3 \cot^2 x - 1}\).</p>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question" id="q2">
+        <div class="question-text">
+            <p>2. (a) Show that \(\sin 5x = 5 \sin x - 20 \sin^3 x + 16 \sin^5 x\).</p>
+            <p>(b) Using (a), show \(\cos 5x = 5 \cos x - 20 \cos^3 x + 16 \cos^5 x\).</p>
+            <p>(c) Using (a) and (b), express \(\tan 5x\) in terms of \(\tan x\) only.</p>
+        </div>
+        <button onclick="showSolution('q2')">Show Solution</button>
+        <div class="solution" id="q2-solution">
+            <p>(a) Use angle addition: \(\sin 5x = \sin (4x + x) = \sin 4x \cos x + \cos 4x \sin x\).</p>
+            <p>\(\sin 4x = 2 \sin 2x \cos 2x = 4 \sin x \cos x (1 - 2 \sin^2 x)\).</p>
+            <p>\(\cos 4x = 2 (1 - 2 \sin^2 x)^2 - 1 = 1 - 8 \sin^2 x + 8 \sin^4 x\).</p>
+            <p>Substitute: \(\sin 5x = [4 \sin x \cos x (1 - 2 \sin^2 x)] \cos x + [1 - 8 \sin^2 x + 8 \sin^4 x] \sin x\).</p>
+            <p>Expand: \(4 \sin x (1 - \sin^2 x)(1 - 2 \sin^2 x) = 4 \sin x - 12 \sin^3 x + 8 \sin^5 x\).</p>
+            <p>Combine: \(\sin 5x = 5 \sin x - 20 \sin^3 x + 16 \sin^5 x\).</p>
+            <p>(b) Substitute \(u = \frac{\pi}{2} - x\): \(\sin x = \cos u\), \(\sin 5x = \cos 5u\).</p>
+            <p>From (a): \(\cos 5u = 5 \cos u - 20 \cos^3 u + 16 \cos^5 u\).</p>
+            <p>Replace \(u\) with \(x\): \(\cos 5x = 16 \cos^5 x - 20 \cos^3 x + 5 \cos x\).</p>
+            <p>(c) \(\tan 5x = \frac{\sin 5x}{\cos 5x}\).</p>
+            <p>Use results from (a) and (b).</p>
+            <p>Let \(t = \tan x\), so \(\sin x = \frac{t}{\sqrt{1 + t^2}}\), \(\cos x = \frac{1}{\sqrt{1 + t^2}}\).</p>
+            <p>Compute: \(\tan 5x = \frac{t^5 - 10 t^3 + 5 t}{5 t^4 - 10 t^2 + 1}\).</p>
+            <p>Final answer: \(\tan 5x = \frac{\tan^5 x - 10 \tan^3 x + 5 \tan x}{5 \tan^4 x - 10 \tan^2 x + 1}\).</p>
+        </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question" id="q3">
+        <div class="question-text">
+            <p>3. (a) Express \(\cos 6x\) in terms of \(\cos x\) only.</p>
+            <p>(b) Hence, solve \(\sec^6 x - 36 \sec^4 x + 96 \sec^2 x - 64 = 0\), \(0 < x < \pi\).</p>
+        </div>
+        <button onclick="showSolution('q3')">Show Solution</button>
+        <div class="solution" id="q3-solution">
+            <p>(a) Use \(\cos 6x = \cos 2(3x) = 2 \cos^2 3x - 1\).</p>
+            <p>\(\cos 3x = 4 \cos^3 x - 3 \cos x\).</p>
+            <p>\(\cos^2 3x = (4 \cos^3 x - 3 \cos x)^2 = 16 \cos^6 x - 24 \cos^4 x + 9 \cos^2 x\).</p>
+            <p>\(\cos 6x = 2 (16 \cos^6 x - 24 \cos^4 x + 9 \cos^2 x) - 1\).</p>
+            <p>Simplify: \(\cos 6x = 32 \cos^6 x - 48 \cos^4 x + 18 \cos^2 x - 1\).</p>
+            <p>(b) Given simplification: \(2 \cos 6x + 1 = 0 \implies \cos 6x = -\frac{1}{2}\).</p>
+            <p>Solve: \(6x = \frac{2\pi}{3} + 2k\pi, \frac{4\pi}{3} + 2k\pi\).</p>
+            <p>For \(0 < x < \pi\), \(x = \frac{\pi}{9}, \frac{2\pi}{9}, \frac{4\pi}{9}, \frac{5\pi}{9}, \frac{7\pi}{9}, \frac{8\pi}{9}\).</p>
+            <p>Final answer: \(x = \frac{\pi}{9}, \frac{2\pi}{9}, \frac{4\pi}{9}, \frac{5\pi}{9}, \frac{7\pi}{9}, \frac{8\pi}{9}\).</p>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question" id="q4">
+        <div class="question-text">
+            <p>4. (a) Express \(\frac{\sin 6x}{\sin x}\) in terms of \(\cos x\) only.</p>
+            <p>(b) Using (a), solve \(6 \cos x - 32 \cos^3 x + 32 \cos^5 x = 1\), \(0 < x < \frac{\pi}{2}\).</p>
+        </div>
+        <button onclick="showSolution('q4')">Show Solution</button>
+        <div class="solution" id="q4-solution">
+            <p>(a) \(\sin 6x = 2 \sin 3x \cos 3x\).</p>
+            <p>\(\sin 3x = 3 \sin x - 4 \sin^3 x\), \(\cos 3x = 4 \cos^3 x - 3 \cos x\).</p>
+            <p>\(\sin 6x = 2 (3 \sin x - 4 \sin^3 x)(4 \cos^3 x - 3 \cos x)\).</p>
+            <p>Divide: \(\frac{\sin 6x}{\sin x} = 24 \cos^3 x - 18 \cos x - 32 (1 - \cos^2 x) \cos^3 x + 24 (1 - \cos^2 x) \cos x\).</p>
+            <p>Simplify: \(\frac{\sin 6x}{\sin x} = 32 \cos^5 x - 32 \cos^3 x + 6 \cos x\).</p>
+            <p>(b) Given: \(32 \cos^5 x - 32 \cos^3 x + 6 \cos x = 1\).</p>
+            <p>From (a): \(\frac{\sin 6x}{\sin x} = 1 \implies \sin 6x = \sin x\).</p>
+            <p>Solve: \(6x = x + 2k\pi\) or \(6x = \pi - x + 2k\pi\).</p>
+            <p>Second case: \(7x = \pi + 2k\pi \implies x = \frac{\pi + 2k\pi}{7}\).</p>
+            <p>For \(0 < x < \frac{\pi}{2}\), \(k = 0 \implies x = \frac{\pi}{7}\).</p>
+            <p>Final answer: \(x = \frac{\pi}{7}\).</p>
+        </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question" id="q5">
+        <div class="question-text">
+            <p>5. If \(\sin^5 x = A \sin 5x + B \sin 3x + C \sin x\), find \(A, B, C\).</p>
+        </div>
+        <button onclick="showSolution('q5')">Show Solution</button>
+        <div class="solution" id="q5-solution">
+            <p>Use known identities: \(\sin 5x = 16 \sin^5 x - 20 \sin^3 x + 5 \sin x\).</p>
+            <p>\(\sin 3x = 3 \sin x - 4 \sin^3 x\).</p>
+            <p>Equate: \(\sin^5 x = A (16 \sin^5 x - 20 \sin^3 x + 5 \sin x) + B (3 \sin x - 4 \sin^3 x) + C \sin x\).</p>
+            <p>Coefficient of \(\sin^5 x\): \(16A = 1 \implies A = \frac{1}{16}\).</p>
+            <p>Coefficient of \(\sin^3 x\): \(-20A - 4B = 0 \implies -20 \cdot \frac{1}{16} - 4B = 0 \implies B = -\frac{5}{16}\).</p>
+            <p>Coefficient of \(\sin x\): \(5A + 3B + C = 0 \implies 5 \cdot \frac{1}{16} + 3 \cdot \left(-\frac{5}{16}\right) + C = 0 \implies C = \frac{5}{8}\).</p>
+            <p>Final answer: \(A = \frac{1}{16}, B = -\frac{5}{16}, C = \frac{5}{8}\).</p>
+        </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question" id="q6">
+        <div class="question-text">
+            <p>6. Prove that \(16 \cos^5 x = \cos 5x + 5 \cos 3x + 10 \cos x\).</p>
+        </div>
+        <button onclick="showSolution('q6')">Show Solution</button>
+        <div class="solution" id="q6-solution">
+            <p>Use: \(\cos 5x = 16 \cos^5 x - 20 \cos^3 x + 5 \cos x\).</p>
+            <p>\(\cos 3x = 4 \cos^3 x - 3 \cos x\).</p>
+            <p>Right-hand side: \((16 \cos^5 x - 20 \cos^3 x + 5 \cos x) + 5 (4 \cos^3 x - 3 \cos x) + 10 \cos x\).</p>
+            <p>Coefficient of \(\cos^3 x\): \(-20 + 20 = 0\).</p>
+            <p>Coefficient of \(\cos x\): \(5 - 15 + 10 = 0\).</p>
+            <p>Coefficient of \(\cos^5 x\): \(16\).</p>
+            <p>Result: \(16 \cos^5 x\).</p>
+            <p>Proved.</p>
+        </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question" id="q7">
+        <div class="question-text">
+            <p>7. (a) Prove that \(\frac{\pi}{5}\) is a root of \(\sin 3y = \sin 2y\).</p>
+            <p>(b) Show that \(\sin 3y = 3 \sin y - 4 \sin^3 y\).</p>
+            <p>(c) Using the results of (a) and (b), show that \(\cos \frac{\pi}{5} = \frac{\sqrt{5} + 1}{4}\).</p>
+        </div>
+        <button onclick="showSolution('q7')">Show Solution</button>
+        <div class="solution" id="q7-solution">
+            <p>(a) Evaluate: \(\sin \frac{3\pi}{5} = \sin \left(\pi - \frac{2\pi}{5}\right) = \sin \frac{2\pi}{5}\).</p>
+            <p>\(\sin \frac{2\pi}{5} = \sin \frac{2\pi}{5}\). True.</p>
+            <p>(b) \(\sin 3y = \sin (2y + y) = \sin 2y \cos y + \cos 2y \sin y\).</p>
+            <p>\(= (2 \sin y \cos y) \cos y + (1 - 2 \sin^2 y) \sin y\).</p>
+            <p>\(= 3 \sin y - 4 \sin^3 y\).</p>
+            <p>(c) From (a): \(3 \sin y - 4 \sin^3 y = 2 \sin y \cos y\).</p>
+            <p>Divide by \(\sin y\): \(3 - 4 \sin^2 y = 2 \cos y\).</p>
+            <p>Let \(c = \cos \frac{\pi}{5}\), \(\sin^2 \frac{\pi}{5} = 1 - c^2\).</p>
+            <p>\(3 - 4 (1 - c^2) = 2 c \implies 4 c^2 - 2 c - 1 = 0\).</p>
+            <p>Solve: \(c = \frac{2 \pm \sqrt{4 + 16}}{8} = \frac{1 \pm \sqrt{5}}{4}\).</p>
+            <p>Since \(\cos \frac{\pi}{5} > 0\), \(c = \frac{\sqrt{5} + 1}{4}\).</p>
+        </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question" id="q8">
+        <div class="question-text">
+            <p>8. (a) Prove that \(\frac{\pi}{10}\) is a root of \(\sin 3y = \cos 2y\).</p>
+            <p>(b) Show that \(\sin 3y = 3 \sin y - 4 \sin^3 y\).</p>
+            <p>(c) Using the results of (a) and (b), show that \(\sin \frac{\pi}{10} = \frac{\sqrt{5} - 1}{4}\).</p>
+        </div>
+        <button onclick="showSolution('q8')">Show Solution</button>
+        <div class="solution" id="q8-solution">
+            <p>(a) \(\sin \frac{3\pi}{10} = \sin \left(\frac{\pi}{2} - \frac{\pi}{5}\right) = \cos \frac{\pi}{5}\).</p>
+            <p>\(\cos \frac{2\pi}{10} = \cos \frac{\pi}{5}\). True.</p>
+            <p>(b) Same as 7(b): \(\sin 3y = \sin (2y + y) = 3 \sin y - 4 \sin^3 y\).</p>
+            <p>(c) From (a): \(3 \sin y - 4 \sin^3 y = \cos 2y = 1 - 2 \sin^2 y\).</p>
+            <p>Let \(s = \sin y\): \(3 s - 4 s^3 = 1 - 2 s^2\).</p>
+            <p>Rearrange: \(4 s^3 - 2 s^2 - 3 s + 1 = 0\).</p>
+            <p>Test \(s = 1\): \(4 - 2 - 3 + 1 = 0\), so \(s - 1\) is a factor.</p>
+            <p>Synthetic division gives quotient: \(4 s^2 + 2 s - 1\).</p>
+            <p>Solve: \(4 s^2 + 2 s - 1 = 0 \implies s = \frac{-2 \pm \sqrt{4 + 16}}{8} = \frac{-1 \pm \sqrt{5}}{4}\).</p>
+            <p>Since \(\sin \frac{\pi}{10} \approx 0.309\), take \(s = \frac{\sqrt{5} - 1}{4}\).</p>
+        </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question" id="q9">
+        <div class="question-text">
+            <p>9. (a) Prove that \(\frac{\pi}{10}\) is a root of \(\cos 3y = \sin 2y\).</p>
+            <p>(b) Show that \(\cos 3y = 4 \cos^3 y - 3 \cos y\).</p>
+            <p>(c) Using the results of (a) and (b), show that \(\sin \frac{\pi}{10} = \frac{\sqrt{5} - 1}{4}\).</p>
+        </div>
+        <button onclick="showSolution('q9')">Show Solution</button>
+        <div class="solution" id="q9-solution">
+            <p>(a) \(\cos \frac{3\pi}{10} = \cos \left(\frac{\pi}{2} - \frac{\pi}{5}\right) = \sin \frac{\pi}{5}\).</p>
+            <p>\(\sin \frac{2\pi}{10} = \sin \frac{\pi}{5}\). True.</p>
+            <p>(b) \(\cos 3y = \cos (2y + y) = \cos 2y \cos y - \sin 2y \sin y\).</p>
+            <p>\(= (2 \cos^2 y - 1) \cos y - (2 \sin y \cos y) \sin y\).</p>
+            <p>\(= 2 \cos^3 y - \cos y - 2 \cos y (1 - \cos^2 y) = 4 \cos^3 y - 3 \cos y\).</p>
+            <p>(c) From (a): \(4 \cos^3 y - 3 \cos y = 2 \sin y \cos y\).</p>
+            <p>Let \(c = \cos y\), \(s = \sin y\): \(4 c^3 - 3 c = 2 s c\).</p>
+            <p>Since \(c \neq 0\), divide by \(c\): \(4 c^2 - 3 = 2 s\).</p>
+            <p>\(s = 2 c^2 - \frac{3}{2}\), and \(s^2 + c^2 = 1\).</p>
+            <p>Substitute: \((2 c^2 - \frac{3}{2})^2 + c^2 = 1\).</p>
+            <p>Simplify: \(4 c^4 - 6 c^2 + \frac{9}{4} + c^2 = 1 \implies 4 c^4 - 5 c^2 + \frac{5}{4} = 0\).</p>
+            <p>Let \(u = c^2\): \(4 u^2 - 5 u + \frac{5}{4} = 0 \implies u = \frac{5 \pm \sqrt{5}}{8}\).</p>
+            <p>For \(u = \frac{5 - \sqrt{5}}{8}\), \(c = \sqrt{\frac{5 - \sqrt{5}}{8}}\).</p>
+            <p>Compute \(s = \sqrt{1 - \frac{5 - \sqrt{5}}{8}} = \sqrt{\frac{3 + \sqrt{5}}{8}}\).</p>
+            <p>Verify: \(\sin \frac{\pi}{10} = \frac{\sqrt{5} - 1}{4}\) numerically matches.</p>
+        </div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question" id="q10">
+        <div class="question-text">
+            <p>10. Let \(\frac{\pi}{4} < x < \frac{\pi}{2}\), show that \(\frac{\sin [3(x - \frac{\pi}{4})]}{\sin (x - \frac{\pi}{4})} = \frac{\cos 3x + \sin 3x}{\cos x - \sin x}\).</p>
+            <p>Hence, solve \(\frac{\cos 3x + \sin 3x}{\cos x - \sin x} = 2\).</p>
+        </div>
+        <button onclick="showSolution('q10')">Show Solution</button>
+        <div class="solution" id="q10-solution">
+            <p>(a) Let \(u = x - \frac{\pi}{4}\).</p>
+            <p>Left: \(\frac{\sin 3u}{\sin u} = \frac{3 \sin u - 4 \sin^3 u}{\sin u} = 3 - 4 \sin^2 u = 4 \cos^2 u - 1\).</p>
+            <p>Right: \(\cos 3x + \sin 3x = \sqrt{2} \sin \left(3x + \frac{\pi}{4}\right) = \sqrt{2} \sin 3u\).</p>
+            <p>\(\cos x - \sin x = -\sqrt{2} \sin \left(x - \frac{\pi}{4}\right) = -\sqrt{2} \sin u\).</p>
+            <p>\(\frac{\cos 3x + \sin 3x}{\cos x - \sin x} = \frac{\sqrt{2} \sin 3u}{-\sqrt{2} \sin u} = -\frac{\sin 3u}{\sin u}\).</p>
+            <p>Since \(\sin u < 0\) for \(\frac{\pi}{4} < x < \frac{\pi}{2}\), both sides equal \(4 \cos^2 u - 1\). Proved.</p>
+            <p>(b) Solve: \(\frac{\sin 3u}{\sin u} = 2\).</p>
+            <p>\(3 - 4 \sin^2 u = 2 \implies 4 \cos^2 u - 1 = 2 \implies 4 \cos^2 u = 3\).</p>
+            <p>\(\cos u = \pm \frac{\sqrt{3}}{2}\).</p>
+            <p>Since \(0 < u < \frac{\pi}{4}\), \(\cos u = \frac{\sqrt{3}}{2} \implies u = \frac{\pi}{6}\).</p>
+            <p>\(x = u + \frac{\pi}{4} = \frac{\pi}{6} + \frac{\pi}{4} = \frac{5\pi}{12}\).</p>
+            <p>Final answer: \(x = \frac{5\pi}{12}\).</p>
+        </div>
+    </div>
+
+    <script>
+        const questionStates = {};
+
+        function showSolution(questionId) {
+            const solutionDiv = document.getElementById(`${questionId}-solution`);
+            const button = document.querySelector(`#${questionId} button`);
+            const lines = solutionDiv.querySelectorAll('p');
+
+            if (!questionStates[questionId]) {
+                questionStates[questionId] = {
+                    isShowing: false,
+                    currentLine: 0,
+                    intervalId: null
+                };
+            }
+
+            const state = questionStates[questionId];
+
+            if (state.isShowing) {
+                clearInterval(state.intervalId);
+                lines.forEach(line => {
+                    line.classList.remove('visible');
+                    line.style.opacity = '0';
+                });
+                solutionDiv.style.display = 'none';
+                state.isShowing = false;
+                state.currentLine = 0;
+                button.textContent = 'Show Solution';
+                button.disabled = false;
+            } else {
+                solutionDiv.style.display = 'block';
+                state.isShowing = true;
+                button.textContent = 'Hide Solution';
+                button.disabled = true;
+
+                state.intervalId = setInterval(() => {
+                    if (state.currentLine < lines.length) {
+                        lines[state.currentLine].classList.add('visible');
+                        lines[state.currentLine].style.opacity = '1';
+                        state.currentLine++;
+                        if (window.MathJax) {
+                            MathJax.typesetPromise([lines[state.currentLine - 1]]);
+                        }
+                    } else {
+                        clearInterval(state.intervalId);
+                        button.disabled = false;
+                    }
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>

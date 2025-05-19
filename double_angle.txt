@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometric Exercises with Solutions</title>
+    <!-- MathJax Script -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .question h3 {
+            margin: 0 0 10px;
+            color: #0066cc;
+        }
+        .solution {
+            display: none;
+            background-color: #e6f3ff;
+            padding: 10px;
+            border-left: 4px solid #0066cc;
+            margin-top: 10px;
+        }
+        .solution p {
+            margin: 5px 0;
+        }
+        .show-solution {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .show-solution:hover {
+            background-color: #0055aa;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trigonometric Double Angle Formula Exercises</h1>
+
+    <!-- Question 1 -->
+    <div class="question">
+        <h3>1. Prove that \(\sin 2x = \frac{2 \tan x}{1 + \tan^2 x}\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution1')">Show Solution</button>
+        <div id="solution1" class="solution">
+            <p>Start with the right-hand side:</p>
+            <p>\[ \frac{2 \tan x}{1 + \tan^2 x} \]</p>
+            <p>Use \( \tan x = \frac{\sin x}{\cos x} \), so \( \tan^2 x = \frac{\sin^2 x}{\cos^2 x} \).</p>
+            <p>Since \( 1 + \tan^2 x = \sec^2 x = \frac{1}{\cos^2 x} \), the denominator is:</p>
+            <p>\[ \frac{1}{1 + \tan^2 x} = \cos^2 x \]</p>
+            <p>Thus:</p>
+            <p>\[ \frac{2 \tan x}{1 + \tan^2 x} = 2 \tan x \cdot \cos^2 x = 2 \cdot \frac{\sin x}{\cos x} \cdot \cos^2 x = 2 \sin x \cos x \]</p>
+            <p>Since \( \sin 2x = 2 \sin x \cos x \), the identity holds.</p>
+            <p><strong>Proved.</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+        <h3>2. Prove that \(\cos 2x = \frac{1 - \tan^2 x}{1 + \tan^2 x}\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution2')">Show Solution</button>
+        <div id="solution2" class="solution">
+            <p>Start with the right-hand side:</p>
+            <p>\[ \frac{1 - \tan^2 x}{1 + \tan^2 x} \]</p>
+            <p>Use \( 1 + \tan^2 x = \frac{1}{\cos^2 x} \) and \( 1 - \tan^2 x = \frac{\cos^2 x - \sin^2 x}{\cos^2 x} \).</p>
+            <p>Thus:</p>
+            <p>\[ \frac{\frac{\cos^2 x - \sin^2 x}{\cos^2 x}}{\frac{1}{\cos^2 x}} = \cos^2 x - \sin^2 x \]</p>
+            <p>Since \( \cos 2x = \cos^2 x - \sin^2 x \), the identity holds.</p>
+            <p><strong>Proved.</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+        <h3>3. Prove that \(\sec^2 x + \csc^2 x = 4 \csc^2 2x\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution3')">Show Solution</button>
+        <div id="solution3" class="solution">
+            <p>Left-hand side:</p>
+            <p>\[ \sec^2 x + \csc^2 x = \frac{1}{\cos^2 x} + \frac{1}{\sin^2 x} = \frac{\sin^2 x + \cos^2 x}{\sin^2 x \cos^2 x} = \frac{1}{\sin^2 x \cos^2 x} \]</p>
+            <p>Right-hand side:</p>
+            <p>\[ 4 \csc^2 2x = 4 \cdot \frac{1}{\sin^2 2x} \]</p>
+            <p>Since \( \sin 2x = 2 \sin x \cos x \), \( \sin^2 2x = 4 \sin^2 x \cos^2 x \).</p>
+            <p>\[ 4 \csc^2 2x = \frac{4}{4 \sin^2 x \cos^2 x} = \frac{1}{\sin^2 x \cos^2 x} \]</p>
+            <p>Both sides are equal.</p>
+            <p><strong>Proved.</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+        <h3>4. Prove that \(\frac{1 - \cos 2x}{1 + \cos 2x} = \tan^2 x\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution4')">Show Solution</button>
+        <div id="solution4" class="solution">
+            <p>Left-hand side:</p>
+            <p>\[ \frac{1 - \cos 2x}{1 + \cos 2x} \]</p>
+            <p>Use \( 1 - \cos 2x = 2 \sin^2 x \), \( 1 + \cos 2x = 2 \cos^2 x \).</p>
+            <p>\[ \frac{2 \sin^2 x}{2 \cos^2 x} = \frac{\sin^2 x}{\cos^2 x} = \tan^2 x \]</p>
+            <p>Right-hand side is \( \tan^2 x \).</p>
+            <p><strong>Proved.</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+        <h3>5. Verify that \(\tan x = \cot x - 2 \cot 2x\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution5')">Show Solution</button>
+        <div id="solution5" class="solution">
+            <p>Right-hand side:</p>
+            <p>\[ \cot x - 2 \cot 2x = \frac{1}{\tan x} - 2 \cdot \frac{1}{\tan 2x} \]</p>
+            <p>Let \( t = \tan x \), so \( \tan 2x = \frac{2t}{1 - t^2} \), \( \cot 2x = \frac{1 - t^2}{2t} \).</p>
+            <p>\[ 2 \cot 2x = \frac{1 - t^2}{t} \]</p>
+            <p>\[ \frac{1}{t} - \frac{1 - t^2}{t} = \frac{1 - (1 - t^2)}{t} = \frac{t^2}{t} = t = \tan x \]</p>
+            <p>The equation is an identity.</p>
+            <p><strong>Verified.</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question">
+        <h3>6. Prove that \(\frac{\sec x}{\csc x} + \frac{\csc x}{\sec x} = 2 \csc 2x\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution6')">Show Solution</button>
+        <div id="solution6" class="solution">
+            <p>Left-hand side:</p>
+            <p>\[ \frac{\sec x}{\csc x} + \frac{\csc x}{\sec x} = \frac{\sin x}{\cos x} + \frac{\cos x}{\sin x}\]</p>
+            <p>\[ = \frac{\sin^2 x + \cos^2 x}{\sin x \cos x} = \frac{1}{\sin x \cos x} \]</p>
+            <p>Right-hand side:</p>
+            <p>\[ 2 \csc 2x = \frac{2}{\sin 2x} = \frac{2}{2 \sin x \cos x} = \frac{1}{\sin x \cos x} \]</p>
+            <p>Both sides are equal.</p>
+            <p><strong>Proved.</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 7 -->
+<div class="question">
+    <h3>7. Evaluate \(\cos \frac{2\pi}{9} \cos \frac{4\pi}{9} \cos \frac{8\pi}{9}\) without a calculator</h3>
+    <button class="show-solution" onclick="toggleSolution('solution7')">Show Solution</button>
+    <div id="solution7" class="solution">
+        <p>Let \(\theta = \frac{\pi}{9}\). Evaluate \(\cos 2\theta \cos 4\theta \cos 8\theta\).</p>
+        <p>Use \(2 \sin \theta \cos \theta = \sin 2\theta\). Multiply by \(2 \sin \theta\):</p>
+        <p>\[ 2 \sin \theta \cos 2\theta \cos 4\theta \cos 8\theta \]</p>
+        <p>\[ 2 \sin \theta \cos 2\theta = \sin 4\theta \]</p>
+        <p>\[ \sin 4\theta \cos 4\theta \cos 8\theta = \frac{1}{2} \sin 8\theta \cos 8\theta \]</p>
+        <p>\[ \frac{1}{2} \sin 8\theta \cos 8\theta = \frac{1}{4} \sin 16\theta \]</p>
+        <p>Thus:</p>
+        <p>\[ \cos 2\theta \cos 4\theta \cos 8\theta = \frac{\sin 16\theta}{8 \sin \theta} \]</p>
+        <p>Compute: \(\sin \frac{16\pi}{9} = \sin \left( 2\pi - \frac{2\pi}{9} \right) = -\sin \frac{\pi}{9}\).</p>
+        <p>\[ \frac{\sin \frac{16\pi}{9}}{8 \sin \frac{\pi}{9}} = \frac{-\sin \frac{\pi}{9}}{8 \sin \frac{\pi}{9}} = -\frac{1}{8} \]</p>
+        <p><strong>Answer: \(-\frac{1}{8}\)</strong></p>
+    </div>
+</div>
+
+    <!-- Question 8 -->
+    <div class="question">
+        <h3>8. If \(\tan 2x = \frac{24}{7}\), \(0 < x < \frac{\pi}{4}\), and \(\cos 2y = \frac{119}{169}\), \(0 < y < \frac{\pi}{4}\), evaluate \(\sin(x + y)\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution8')">Show Solution</button>
+        <div id="solution8" class="solution">
+            <p>Use \(\sin(x + y) = \sin x \cos y + \cos x \sin y\).</p>
+            <p>For \(x\): \(\tan 2x = \frac{24}{7}\), solve \(\frac{2u}{1 - u^2} = \frac{24}{7}\), \(u = \tan x\).</p>
+            <p>Quadratic: \(24u^2 + 14u - 24 = 0\), so \(u = \frac{3}{4}\).</p>
+            <p>\(\sin x = \frac{3}{5}\), \(\cos x = \frac{4}{5}\).</p>
+            <p>For \(y\): \(\cos 2y = \frac{119}{169} = 2 \cos^2 y - 1\).</p>
+            <p>\(\cos^2 y = \frac{144}{169}\), so \(\cos y = \frac{12}{13}\), \(\sin y = \frac{5}{13}\).</p>
+            <p>\[ \sin(x + y) = \frac{3}{5} \cdot \frac{12}{13} + \frac{4}{5} \cdot \frac{5}{13} = \frac{36}{65} + \frac{20}{65} = \frac{56}{65} \]</p>
+            <p><strong>Answer: \(\frac{56}{65}\)</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question">
+        <h3>9. Prove \(\sin 3x = 3 \sin x - 4 \sin^3 x\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution9')">Show Solution</button>
+        <div id="solution9" class="solution">
+            <p>Use \(\sin 3x = \sin (2x + x) = \sin 2x \cos x + \cos 2x \sin x\).</p>
+            <p>\(\sin 2x = 2 \sin x \cos x\), \(\cos 2x = 1 - 2 \sin^2 x\).</p>
+            <p>\[ \sin 3x = 2 \sin x \cos x \cos x + (1 - 2 \sin^2 x) \sin x \]</p>
+            <p>\[ = 2 \sin x \cos^2 x + \sin x - 2 \sin^3 x \]</p>
+            <p>\[ \cos^2 x = 1 - \sin^2 x \], so \( 2 \sin x \cos^2 x = 2 \sin x - 2 \sin^3 x \).</p>
+            <p>\[ \sin 3x = 2 \sin x - 2 \sin^3 x + \sin x - 2 \sin^3 x = 3 \sin x - 4 \sin^3 x \]</p>
+            <p><strong>Proved.</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question">
+        <h3>10. Prove \(\cos 3x = 4 \cos^3 x - 3 \cos x\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution10')">Show Solution</button>
+        <div id="solution10" class="solution">
+            <p>Use \(\cos 3x = \cos (2x + x) = \cos 2x \cos x - \sin 2x \sin x\).</p>
+            <p>\(\cos 2x = 2 \cos^2 x - 1\), \(\sin 2x = 2 \sin x \cos x\).</p>
+            <p>\[ \cos 3x = (2 \cos^2 x - 1) \cos x - 2 \sin x \cos x \sin x \]</p>
+            <p>\[ = 2 \cos^3 x - \cos x - 2 \sin^2 x \cos x \]</p>
+            <p>\(\sin^2 x = 1 - \cos^2 x\), so \( 2 \sin^2 x \cos x = 2 \cos x - 2 \cos^3 x \).</p>
+            <p>\[ \cos 3x = 2 \cos^3 x - \cos x - (2 \cos x - 2 \cos^3 x) = 4 \cos^3 x - 3 \cos x \]</p>
+            <p><strong>Proved.</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 11 -->
+    <div class="question">
+        <h3>11. Express \(\tan 3x\) in terms of \(\tan x\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution11')">Show Solution</button>
+        <div id="solution11" class="solution">
+            <p>Use \(\tan 3x = \tan (2x + x) = \frac{\tan 2x + \tan x}{1 - \tan 2x \tan x}\).</p>
+            <p>Let \( t = \tan x \), \(\tan 2x = \frac{2t}{1 - t^2}\).</p>
+            <p>Numerator: \(\frac{2t}{1 - t^2} + t = \frac{2t + t (1 - t^2)}{1 - t^2} = \frac{3t - t^3}{1 - t^2}\).</p>
+            <p>Denominator: \(1 - \frac{2t}{1 - t^2} \cdot t = \frac{1 - 3t^2}{1 - t^2}\).</p>
+            <p>\[ \tan 3x = \frac{\frac{3t - t^3}{1 - t^2}}{\frac{1 - 3t^2}{1 - t^2}} = \frac{3t - t^3}{1 - 3t^2} \]</p>
+            <p><strong>Answer: \(\tan 3x = \frac{3 \tan x - \tan^3 x}{1 - 3 \tan^2 x}\)</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 12 -->
+    <div class="question">
+        <h3>12. Express \(\cot 3x\) in terms of \(\cot x\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution12')">Show Solution</button>
+        <div id="solution12" class="solution">
+            <p>Since \(\cot 3x = \frac{1}{\tan 3x}\), use \(\tan 3x = \frac{3t - t^3}{1 - 3t^2}\), \( t = \tan x \).</p>
+            <p>\[ \cot 3x = \frac{1 - 3t^2}{3t - t^3} \]</p>
+            <p>Let \( c = \cot x = \frac{1}{t} \), so \( t = \frac{1}{c} \).</p>
+            <p>Numerator: \( 1 - 3t^2 = 1 - \frac{3}{c^2} = \frac{c^2 - 3}{c^2} \).</p>
+            <p>Denominator: \( 3t - t^3 = \frac{3}{c} - \frac{1}{c^3} = \frac{3c^2 - 1}{c^3} \).</p>
+            <p>\[ \cot 3x = \frac{\frac{c^2 - 3}{c^2}}{\frac{3c^2 - 1}{c^3}} = \frac{c (c^2 - 3)}{3c^2 - 1} \]</p>
+            <p><strong>Answer: \(\cot 3x = \frac{\cot x (\cot^2 x - 3)}{3 \cot^2 x - 1}\)</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 13 -->
+    <div class="question">
+        <h3>13. If \(\cos 4x = A \cos^4 x + B \cos^2 x + C\), find \(A, B, C\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution13')">Show Solution</button>
+        <div id="solution13" class="solution">
+            <p>\(\cos 4x = 2 \cos^2 2x - 1\).</p>
+            <p>\(\cos 2x = 2 \cos^2 x - 1\), so \(\cos^2 2x = (2 \cos^2 x - 1)^2 = 4 \cos^4 x - 4 \cos^2 x + 1\).</p>
+            <p>\[ \cos 4x = 2 (4 \cos^4 x - 4 \cos^2 x + 1) - 1 = 8 \cos^4 x - 8 \cos^2 x + 1 \]</p>
+            <p>Compare: \( A \cos^4 x + B \cos^2 x + C \).</p>
+            <p>\[ A = 8, B = -8, C = 1 \]</p>
+            <p><strong>Answer: \( A = 8, B = -8, C = 1 \)</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 14 -->
+    <div class="question">
+        <h3>14. If \(\frac{\sin 4x}{\sin x} = P \cos^3 x + Q \cos x\), find \(P, Q\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution14')">Show Solution</button>
+        <div id="solution14" class="solution">
+            <p>\(\sin 4x = 2 \sin 2x \cos 2x = 2 (2 \sin x \cos x) (2 \cos^2 x - 1)\).</p>
+            <p>\[ \frac{\sin 4x}{\sin x} = 4 \cos x (2 \cos^2 x - 1) = 8 \cos^3 x - 4 \cos x \]</p>
+            <p>Compare with \( P \cos^3 x + Q \cos x \).</p>
+            <p>\[ P = 8, Q = -4 \]</p>
+            <p><strong>Answer: \( P = 8, Q = -4 \)</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 15 -->
+    <div class="question">
+        <h3>15. Show \(\tan 4x = \frac{4 \tan x - 4 \tan^3 x}{1 - 6 \tan^2 x + \tan^4 x}\). Solve \(\tan^4 x - 4 \tan^3 x - 6 \tan^2 x + 4 \tan x + 1 = 0\), \(0 < x < \pi\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution15')">Show Solution</button>
+        <div id="solution15" class="solution">
+            <p><strong>Prove:</strong></p>
+            <p>\(\tan 4x = \frac{2 \tan 2x}{1 - \tan^2 2x}\), \( t = \tan x \), \(\tan 2x = \frac{2t}{1 - t^2}\).</p>
+            <p>Numerator: \( 2 \cdot \frac{2t}{1 - t^2} = \frac{4t}{1 - t^2} \).</p>
+            <p>Denominator: \( 1 - \left( \frac{2t}{1 - t^2} \right)^2 = \frac{1 - 6t^2 + t^4}{(1 - t^2)^2} \).</p>
+            <p>\[ \tan 4x = \frac{\frac{4t}{1 - t^2}}{\frac{1 - 6t^2 + t^4}{(1 - t^2)^2}} = \frac{4t (1 - t^2)}{1 - 6t^2 + t^4} = \frac{4t - 4t^3}{1 - 6t^2 + t^4} \]</p>
+            <p><strong>Proved.</strong></p>
+            <p><strong>Solve:</strong></p>
+            <p>Let \( t = \tan x \). Equation: \( t^4 - 4t^3 - 6t^2 + 4t + 1 = 0 \).</p>
+            <p>Rewrite: \( t^4 - 6t^2 + 1 = 4t^3 - 4t \).</p>
+            <p>\[ \frac{4t - 4t^3}{1 - 6t^2 + t^4} = -1 \]</p>
+            <p>\[ \tan 4x = -1 \]</p>
+            <p>\[ 4x = \frac{3\pi}{4} + k\pi \], \( x = \frac{3\pi}{16} + \frac{k\pi}{4} \).</p>
+            <p>For \( 0 < x < \pi \): \( k = 0, 1, 2, 3 \).</p>
+            <p>Solutions: \( x = \frac{3\pi}{16}, \frac{7\pi}{16}, \frac{11\pi}{16}, \frac{15\pi}{16} \).</p>
+            <p><strong>Answer: \( x = \frac{3\pi}{16}, \frac{7\pi}{16}, \frac{11\pi}{16}, \frac{15\pi}{16} \)</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 17 -->
+    <div class="question">
+        <h3>17. Show \(\frac{\sin 3x}{\sin x} + \frac{\cos 3x}{\cos x} = 4 \cos 2x\). Solve \(\frac{\sec x}{\sec 3x} + \frac{\csc x}{\csc 3x} + 2 = 0\), \(0 \leq x \leq \pi\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution17')">Show Solution</button>
+        <div id="solution17" class="solution">
+            <p><strong>Prove:</strong></p>
+            <p>\(\sin 3x = 3 \sin x - 4 \sin^3 x\), so \(\frac{\sin 3x}{\sin x} = 3 - 4 \sin^2 x\).</p>
+            <p>\(\cos 3x = 4 \cos^3 x - 3 \cos x\), so \(\frac{\cos 3x}{\cos x} = 4 \cos^2 x - 3\).</p>
+            <p>\[ (3 - 4 \sin^2 x) + (4 \cos^2 x - 3) = 4 (\cos^2 x - \sin^2 x) = 4 \cos 2x \]</p>
+            <p><strong>Proved.</strong></p>
+            <p><strong>Solve:</strong></p>
+            <p>\[ \frac{\sec x}{\sec 3x} = \frac{\cos 3x}{\cos x} \], \(\frac{\csc x}{\csc 3x} = \frac{\sin 3x}{\sin x}\).</p>
+            <p>Equation: \(\frac{\sin 3x}{\sin x} + \frac{\cos 3x}{\cos x} + 2 = 0\).</p>
+            <p>\[ 4 \cos 2x + 2 = 0 \]</p>
+            <p>\[ \cos 2x = -\frac{1}{2} \]</p>
+            <p>\[ 2x = \frac{2\pi}{3}, \frac{4\pi}{3} \]</p>
+            <p>\[ x = \frac{\pi}{3}, \frac{2\pi}{3} \]</p>
+            <p>Check: \( x = \frac{\pi}{2} \), \( 0 \), \(\pi\) undefined.</p>
+            <p><strong>Answer: \( x = \frac{\pi}{3}, \frac{2\pi}{3} \)</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 18 -->
+<div class="question">
+    <h3>18. Show \(\tan 3x \tan 2x \tan x = \tan 3x - \tan 2x - \tan x\)</h3>
+    <button class="show-solution" onclick="toggleSolution('solution18')">Show Solution</button>
+    <div id="solution18" class="solution">
+        <p>Use the tangent addition formula for \(\tan 3x = \tan (2x + x)\):</p>
+        <p>\[ \tan 3x = \frac{\tan 2x + \tan x}{1 - \tan 2x \tan x} \]</p>
+        <p>Multiply both sides by \(1 - \tan x \tan 2x\):</p>
+        <p>\[ \tan 3x (1 - \tan x \tan 2x) = \tan x + \tan 2x \]</p>
+        <p>Rearrange:</p>
+        <p>\[ \tan 3x - \tan x \tan 2x \tan 3x = \tan x + \tan 2x \]</p>
+        <p>Move terms to one side:</p>
+        <p>\[ \tan 3x - \tan x - \tan 2x = \tan x \tan 2x \tan 3x \]</p>
+        <p>The identity holds.</p>
+        <p><strong>Proved.</strong></p>
+    </div>
+</div>
+
+    <!-- Question 19 -->
+    <div class="question">
+        <h3>19. Prove \(\cot x - \cot 2x = \csc 2x\). Solve \(\csc 2x + \csc 4x - \cot x = 1\), \(0 < x < \pi\)</h3>
+        <button class="show-solution" onclick="toggleSolution('solution19')">Show Solution</button>
+        <div id="solution19" class="solution">
+            <p><strong>Prove:</strong></p>
+            <p>\[ \cot x - \cot 2x = \frac{\cos x}{\sin x} - \frac{\cos 2x}{\sin 2x} \]</p>
+            <p>\[ = \frac{\cos x \sin 2x - \cos 2x \sin x}{\sin x \sin 2x} = \frac{\sin x}{\sin x \sin 2x} = \frac{1}{\sin 2x} = \csc 2x \]</p>
+            <p><strong>Proved.</strong></p>
+            <p>Given: \(\cot 2x - \cot 4x = \csc 4x\).</p>
+            <p>Thus: \(\cot x - \cot 4x = \csc 2x + \csc 4x\).</p>
+            <p><strong>Solve:</strong></p>
+            <p>\[ \csc 2x + \csc 4x - \cot x = 1 \]</p>
+            <p>\[ (\cot x - \cot 4x) - \cot x = 1 \]</p>
+            <p>\[ -\cot 4x = 1 \]</p>
+            <p>\[ \tan 4x = -1 \]</p>
+            <p>\[ 4x = \frac{3\pi}{4} + k\pi \], \( x = \frac{3\pi}{16} + \frac{k\pi}{4} \).</p>
+            <p>For \( 0 < x < \pi \): \( k = 0, 1, 2, 3 \).</p>
+            <p>Solutions: \( x = \frac{3\pi}{16}, \frac{7\pi}{16}, \frac{11\pi}{16}, \frac{15\pi}{16} \).</p>
+            <p><strong>Answer: \( x = \frac{3\pi部分
+
+            <p>Check: \( x = \frac{\pi}{2} \) undefined.</p>
+            <p><strong>Answer: \( x = \frac{3\pi}{16}, \frac{7\pi}{16}, \frac{11\pi}{16}, \frac{15\pi}{16} \)</strong></p>
+        </div>
+    </div>
+
+    <!-- Question 20 -->
+<div class="question">
+    <h3>20. Prove \(\cot \left( x - \frac{\pi}{6} \right) \tan x \cot \left( x + \frac{\pi}{6} \right) = -\tan 3x\)</h3>
+    <button class="show-solution" onclick="toggleSolution('solution20')">Show Solution</button>
+    <div id="solution20" class="solution">
+        <p>Use \(\cot \theta = \tan \left( \frac{\pi}{2} - \theta \right)\):</p>
+        <p>\[ \cot \left( x - \frac{\pi}{6} \right) = \tan \left( \frac{2\pi}{3} - x \right) \]</p>
+        <p>\[ \cot \left( x + \frac{\pi}{6} \right) = \tan \left( \frac{\pi}{3} - x \right) \]</p>
+        <p>Expression: \(\tan \left( \frac{2\pi}{3} - x \right) \tan x \tan \left( \frac{\pi}{3} - x \right)\).</p>
+        <p>Since \(\tan \left( \frac{2\pi}{3} - x \right) = -\tan \left( \frac{\pi}{3} + x \right)\):</p>
+        <p>\[ = -\tan \left( \frac{\pi}{3} + x \right) \tan x \tan \left( \frac{\pi}{3} - x \right) \]</p>
+        <p>Let \( t = \tan x \). Use compound angle formulas:</p>
+        <p>\[ \tan \left( \frac{\pi}{3} + x \right) = \frac{\sqrt{3} + t}{1 - \sqrt{3} t} \]</p>
+        <p>\[ \tan \left( \frac{\pi}{3} - x \right) = \frac{\sqrt{3} - t}{1 + \sqrt{3} t} \]</p>
+        <p>Compute: \(-\left( \frac{\sqrt{3} + t}{1 - \sqrt{3} t} \right) t \left( \frac{\sqrt{3} - t}{1 + \sqrt{3} t} \right)\).</p>
+        <p>Numerator: \(\left( \sqrt{3} + t \right) \left( \sqrt{3} - t \right) = 3 - t^2\).</p>
+        <p>Denominator: \(\left( 1 - \sqrt{3} t \right) \left( 1 + \sqrt{3} t \right) = 1 - 3 t^2\).</p>
+        <p>\[ -\frac{\left( 3 - t^2 \right) t}{1 - 3 t^2} = -\frac{3 t - t^3}{1 - 3 t^2} = -\tan 3x \]</p>
+        <p><strong>Proved.</strong></p>
+    </div>
+</div>
+
+    <script>
+        function toggleSolution(id) {
+            var solution = document.getElementById(id);
+            if (solution.style.display === "none") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

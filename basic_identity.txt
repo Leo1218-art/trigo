@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometry Problems with Solutions</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #3498db;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .problem {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .solution {
+            display: none;
+            padding: 15px;
+            margin-top: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            overflow-x: auto; /* Add horizontal scrollbar for long solutions */
+        }
+        .solution p {
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            margin-top: 5px;
+        }
+        button:hover {
+            background-color: #217dbb;
+        }
+        .problem-container {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trigonometry Problems and Solutions</h1>
+
+        <div class="problem-container">
+            <h2 class="problem">1.  \(\frac{\sec x + \tan x}{\csc x - \cot x} + \frac{\sec x - \tan x}{\csc x + \cot x} = 2\csc x \sec x + 2\)</h2>
+            <button onclick="toggleSolution(1)">Show Solution</button>
+            <div id="solution1" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>We start with the left-hand side (LHS):</p>
+                <p>\[
+                    \frac{\sec x + \tan x}{\csc x - \cot x} + \frac{\sec x - \tan x}{\csc x + \cot x}
+                \]</p>
+                <p>Find a common denominator:</p>
+                <p>\[
+                   = \frac{(\sec x + \tan x)(\csc x + \cot x) + (\sec x - \tan x)(\csc x - \cot x)}{(\csc x - \cot x)(\csc x + \cot x)}
+                \]</p>
+                 <p>Expand the numerator:</p>
+                \[
+                  = \frac{\sec x \csc x + \sec x \cot x + \tan x \csc x + \tan x \cot x + \sec x \csc x - \sec x \cot x - \tan x \csc x + \tan x \cot x}{\csc^2 x - \cot^2 x}
+                \]
+                <p>Simplify, noting that \(\csc^2 x - \cot^2 x = 1\) and \(\tan x \cot x = 1\):</p>
+                <p>\[
+                  = \frac{2 \sec x \csc x + 2}{\csc^2 x - \cot^2 x}
+                \]</p>
+                <p>\[
+                   = 2 \sec x \csc x + 2
+                \]</p>
+                <p>This is equal to the right-hand side (RHS), so the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">2.  \((\sin x + \csc x)^2 + (\sec x + \cos x)^2 - (\tan x + \cot x)^2 = 5\)</h2>
+            <button onclick="toggleSolution(2)">Show Solution</button>
+            <div id="solution2" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Expand the squares:</p>
+                <p>\[
+                    (\sin^2 x + 2 \sin x \csc x + \csc^2 x) + (\sec^2 x + 2 \sec x \cos x + \cos^2 x) - (\tan^2 x + 2 \tan x \cot x + \cot^2 x)
+                \]</p>
+                <p>Simplify, using \(\sin x \csc x = 1\), \(\sec x \cos x = 1\), and \(\tan x \cot x = 1\):</p>
+                 <p>\[
+                    (\sin^2 x + 2 + \csc^2 x) + (\sec^2 x + 2 + \cos^2 x) - (\tan^2 x + 2 + \cot^2 x)
+                 \]</p>
+                <p>Rearrange and use the Pythagorean identities:</p>
+                <p>\[
+                    (\sin^2 x + \cos^2 x) + (\csc^2 x - \cot^2 x) + (\sec^2 x - \tan^2 x) + 4 - 2
+                \]</p>
+                <p>\[
+                     1 + 1 + 1 + 2 = 5
+                \]</p>
+                <p>Thus, the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">3.  \(\frac{\tan x}{1 - \cot x} + \frac{\cot x}{1 - \tan x} = 1 + \sec x \csc x\)</h2>
+            <button onclick="toggleSolution(3)">Show Solution</button>
+            <div id="solution3" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Express everything in terms of \(\sin x\) and \(\cos x\):</p>
+                <p>\[
+                    \frac{\frac{\sin x}{\cos x}}{1 - \frac{\cos x}{\sin x}} + \frac{\frac{\cos x}{\sin x}}{1 - \frac{\sin x}{\cos x}}
+                \]</p>
+                <p>Simplify the fractions:</p>
+                <p>\[
+                    \frac{\frac{\sin x}{\cos x}}{\frac{\sin x - \cos x}{\sin x}} + \frac{\frac{\cos x}{\sin x}}{\frac{\cos x - \sin x}{\cos x}}
+                \]</p>
+                <p>\[
+                   = \frac{\sin^2 x}{\cos x (\sin x - \cos x)} + \frac{\cos^2 x}{\sin x (\cos x - \sin x)}
+                \]</p>
+                <p>\[
+                   = \frac{\sin^2 x}{\cos x (\sin x - \cos x)} - \frac{\cos^2 x}{\sin x (\sin x - \cos x)}
+                \]</p>
+                <p>Combine the fractions:</p>
+                 <p>\[
+                   = \frac{\sin^3 x - \cos^3 x}{\sin x \cos x (\sin x - \cos x)}
+                 \]</p>
+                <p>Factor the numerator:</p>
+                <p>\[
+                    = \frac{(\sin x - \cos x)(\sin^2 x + \sin x \cos x + \cos^2 x)}{\sin x \cos x (\sin x - \cos x)}
+                \]</p>
+                <p>Simplify:</p>
+                <p>\[
+                    = \frac{\sin^2 x + \sin x \cos x + \cos^2 x}{\sin x \cos x}
+                \]</p>
+                <p>\[
+                    = \frac{1 + \sin x \cos x}{\sin x \cos x}
+                \]</p>
+                <p>\[
+                    = \frac{1}{\sin x \cos x} + 1
+                \]</p>
+                <p>\[
+                    = \csc x \sec x + 1
+                \]</p>
+                <p>Thus, the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">4.  \(\frac{\csc^2 x}{1 + \csc x} + \frac{\csc^2 x}{1 - \csc x} = -2\sec^2 x\)</h2>
+            <button onclick="toggleSolution(4)">Show Solution</button>
+            <div id="solution4" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Combine the fractions:</p>
+                <p>\[
+                    \frac{\csc^2 x (1 - \csc x) + \csc^2 x (1 + \csc x)}{(1 + \csc x)(1 - \csc x)}
+                 \]</p>
+                <p>Expand:</p>
+                <p>\[
+                    = \frac{\csc^2 x - \csc^3 x + \csc^2 x + \csc^3 x}{1 - \csc^2 x}
+                \]</p>
+                 <p>Simplify:</p>
+                <p>\[
+                    = \frac{2 \csc^2 x}{1 - \csc^2 x}
+                \]</p>
+                <p>Use the identity \(1 - \csc^2 x = -\cot^2 x\):</p>
+                 <p>\[
+                    = \frac{2 \csc^2 x}{-\cot^2 x}
+                 \]</p>
+                <p>Express in terms of \(\sin x\) and \(\cos x\):</p>
+                <p>\[
+                    = -2 \frac{\frac{1}{\sin^2 x}}{\frac{\cos^2 x}{\sin^2 x}}
+                \]</p>
+                <p>\[
+                    = -2 \frac{1}{\cos^2 x}
+                \]</p>
+                <p>\[
+                    = -2 \sec^2 x
+                \]</p>
+                <p>Thus, the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">5.  \(\frac{\csc x + 1}{\cot x} + \frac{\cot x}{\csc x + 1} = 2\sec x\)</h2>
+            <button onclick="toggleSolution(5)">Show Solution</button>
+            <div id="solution5" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Combine the fractions:</p>
+                <p>\[
+                    \frac{(\csc x + 1)^2 + \cot^2 x}{\cot x (\csc x + 1)}
+                \]</p>
+                <p>Expand:</p>
+                <p>\[
+                    = \frac{\csc^2 x + 2 \csc x + 1 + \cot^2 x}{\cot x (\csc x + 1)}
+                \]</p>
+                <p>Use the identity \(1 + \cot^2 x = \csc^2 x\):</p>
+                <p>\[
+                    = \frac{2 \csc^2 x + 2 \csc x}{\cot x (\csc x + 1)}
+                \]</p>
+                <p>Factor:</p>
+                <p>\[
+                    = \frac{2 \csc x (\csc x + 1)}{\cot x (\csc x + 1)}
+                \]</p>
+                <p>Simplify:</p>
+                <p>\[
+                    = \frac{2 \csc x}{\cot x}
+                \]</p>
+                <p>Express in terms of \(\sin x\) and \(\cos x\):</p>
+                <p>\[
+                    = 2 \frac{\frac{1}{\sin x}}{\frac{\cos x}{\sin x}}
+                \]</p>
+                <p>\[
+                    = 2 \frac{1}{\cos x}
+                \]</p>
+                <p>\[
+                    = 2 \sec x
+                \]</p>
+                <p>Thus, the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">6.  \(\csc^2 x + \tan^2 x = \sec^2 x + \cot^2 x\)</h2>
+            <button onclick="toggleSolution(6)">Show Solution</button>
+            <div id="solution6" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>We know the Pythagorean identities:</p>
+                <p>\[
+                    \csc^2 x = 1 + \cot^2 x
+                \]</p>
+                <p>\[
+                    \sec^2 x = 1 + \tan^2 x
+                \]</p>
+                <p>Substitute these into the given equation:</p>
+                <p>\[
+                    (1 + \cot^2 x) + \tan^2 x = (1 + \tan^2 x) + \cot^2 x
+                \]</p>
+                <p>Rearrange:</p>
+                <p>\[
+                     1 + \cot^2 x + \tan^2 x = 1 + \tan^2 x + \cot^2 x
+                \]</p>
+                <p>The equation holds true.  It is an identity.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">7.  \(\frac{1 + \cot^3 x}{1 + \cot x} = \csc^2 x - \cot x\)</h2>
+            <button onclick="toggleSolution(7)">Show Solution</button>
+            <div id="solution7" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Factor the numerator using the sum of cubes formula, \(a^3 + b^3 = (a + b)(a^2 - ab + b^2)\):</p>
+                <p>\[
+                    \frac{(1 + \cot x)(1 - \cot x + \cot^2 x)}{1 + \cot x}
+                \]</p>
+                <p>Cancel the common factor:</p>
+                <p>\[
+                    = 1 - \cot x + \cot^2 x
+                \]</p>
+                 <p>Use the identity \(1 + \cot^2 x = \csc^2 x\):</p>
+                <p>\[
+                    = \csc^2 x - \cot x
+                \]</p>
+                <p>Thus, the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">8.  \((\sin x - \csc x)^4 = \sin^4 x + \csc^4 x - 4(\sin^2 x + \csc^2 x) + 6\)</h2>
+            <button onclick="toggleSolution(8)">Show Solution</button>
+            <div id="solution8" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Expand the left side using the binomial theorem:</p>
+                <p>\[
+                    (\sin x - \csc x)^4 = \sin^4 x - 4 \sin^3 x \csc x + 6 \sin^2 x \csc^2 x - 4 \sin x \csc^3 x + \csc^4 x
+                \]</p>
+                <p>Simplify, noting that \(\sin x \csc x = 1\):</p>
+                <p>\[
+                     = \sin^4 x - 4 \sin^2 x + 6 - 4 \csc^2 x + \csc^4 x
+                \]</p>
+                <p>Rearrange:</p>
+                 <p>\[
+                     = \sin^4 x + \csc^4 x - 4(\sin^2 x + \csc^2 x) + 6
+                 \]</p>
+                <p>This is equal to the right-hand side, so the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">9.  \((\csc x - 1)\sec x = \frac{\cot x}{\sin x + 1}\)</h2>
+            <button onclick="toggleSolution(9)">Show Solution</button>
+            <div id="solution9" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Start with the left-hand side (LHS):</p>
+                <p>\[
+                    (\csc x - 1)\sec x = \left( \frac{1}{\sin x} - 1 \right) \frac{1}{\cos x}
+                \]</p>
+                 <p>\[
+                     = \frac{1 - \sin x}{\sin x \cos x}
+                 \]</p>
+
+                <p>Multiply the numerator and denominator by \(1 + \sin x\):</p>
+                <p>\[
+                    = \frac{(1 - \sin x)(1 + \sin x)}{\sin x \cos x (1 + \sin x)}
+                \]</p>
+                <p>\[
+                    = \frac{1 - \sin^2 x}{\sin x \cos x (1 + \sin x)}
+                \]</p>
+
+                <p>Use the identity \(1 - \sin^2 x = \cos^2 x\):</p>
+                <p>\[
+                    = \frac{\cos^2 x}{\sin x \cos x (1 + \sin x)}
+                \]</p>
+
+                <p>Simplify:</p>
+                <p>\[
+                    = \frac{\cos x}{\sin x (1 + \sin x)}
+                \]</p>
+
+                <p>\[
+                    = \frac{\frac{\cos x}{\sin x}}{1 + \sin x}
+                \]</p>
+
+                <p>\[
+                    = \frac{\cot x}{1 + \sin x}
+                \]</p>
+                <p>This is equal to the right-hand side (RHS), so the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">10.  \(1 + \tan^2 x \sec^2 x - \tan^4 x = \sec^2 x\)</h2>
+            <button onclick="toggleSolution(10)">Show Solution</button>
+            <div id="solution10" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Start with the left-hand side (LHS):</p>
+                <p>\[
+                    1 + \tan^2 x \sec^2 x - \tan^4 x
+                \]</p>
+                <p>Use the identity \(\sec^2 x = 1 + \tan^2 x\):</p>
+                <p>\[
+                    = 1 + \tan^2 x (1 + \tan^2 x) - \tan^4 x
+                \]</p>
+                <p>Expand:</p>
+                <p>\[
+                    = 1 + \tan^2 x + \tan^4 x - \tan^4 x
+                \]</p>
+                <p>Simplify:</p>
+                <p>\[
+                    = 1 + \tan^2 x
+                \]</p>
+                <p>Use the identity \(1 + \tan^2 x = \sec^2 x\):</p>
+                <p>\[
+                    = \sec^2 x
+                \]</p>
+                <p>This is equal to the right-hand side (RHS), so the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">11.  \(\frac{1}{1 + \sin^2 x} + \frac{1}{1 + \cos^2 x} + \frac{1}{1 + \csc^2 x} + \frac{1}{1 + \sec^2 x} = 2\)</h2>
+            <button onclick="toggleSolution(11)">Show Solution</button>
+            <div id="solution11" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Use the identities \(\csc^2 x = 1 + \cot^2 x\) and \(\sec^2 x = 1 + \tan^2 x\):</p>
+                <p>\[
+                     \frac{1}{1 + \sin^2 x} + \frac{1}{1 + \cos^2 x} + \frac{1}{1 + 1 + \cot^2 x} + \frac{1}{1 + 1 + \tan^2 x}
+                \]</p>
+                 <p>\[
+                      =  \frac{1}{1 + \sin^2 x} + \frac{1}{1 + \cos^2 x} + \frac{1}{2 + \frac{\cos^2 x}{\sin^2 x}} + \frac{1}{2 + \frac{\sin^2 x}{\cos^2 x}}
+                 \]</p>
+                <p>Simplify:</p>
+                <p>\[
+                     =  \frac{1}{1 + \sin^2 x} + \frac{1}{1 + \cos^2 x} + \frac{\sin^2 x}{2\sin^2 x + \cos^2 x} + \frac{\cos^2 x}{2\cos^2 x + \sin^2 x}
+                \]</p>
+                <p>\[
+                     =  \frac{1}{1 + \sin^2 x} + \frac{1}{1 + \cos^2 x} + \frac{\sin^2 x}{ \sin^2 x + 1 + \sin^2 x} + \frac{\cos^2 x}{\cos^2 x + 1 + \cos^2 x}
+                \]</p>
+                <p>\[
+                     =  \frac{1}{1 + \sin^2 x} + \frac{1}{1 + \cos^2 x} + \frac{\sin^2 x}{1 + \sin^2 x} + \frac{\cos^2 x}{1 + \cos^2 x}
+                \]</p>
+
+                <p>Combine terms:</p>
+                <p>\[
+                    = \frac{1 + \sin^2 x}{1 + \sin^2 x} + \frac{1 + \cos^2 x}{1 + \cos^2 x}
+                \]</p>
+                <p>\[
+                    = 1 + 1 = 2
+                \]</p>
+                <p>Thus, the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">12.  \((\csc x - \sin x)(\sec x - \cos x)(\tan x + \cot x) = 1\)</h2>
+            <button onclick="toggleSolution(12)">Show Solution</button>
+            <div id="solution12" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Express everything in terms of \(\sin x\) and \(\cos x\):</p>
+                <p>\[
+                    \left( \frac{1}{\sin x} - \sin x \right) \left( \frac{1}{\cos x} - \cos x \right) \left( \frac{\sin x}{\cos x} + \frac{\cos x}{\sin x} \right)
+                \]</p>
+                <p>Simplify:</p>
+                <p>\[
+                    = \left( \frac{1 - \sin^2 x}{\sin x} \right) \left( \frac{1 - \cos^2 x}{\cos x} \right) \left( \frac{\sin^2 x + \cos^2 x}{\sin x \cos x} \right)
+                \]</p>
+                <p>Use the Pythagorean identities:</p>
+                <p>\[
+                    = \left( \frac{\cos^2 x}{\sin x} \right) \left( \frac{\sin^2 x}{\cos x} \right) \left( \frac{1}{\sin x \cos x} \right)
+                \]</p>
+                <p>Simplify:</p>
+                <p>\[
+                    = \frac{\cos^2 x\sin^2 x}{\sin^2 x \cos^2 x}
+                \]</p>
+                 <p>\[
+                    = 1
+                 \]</p>
+                <p>Thus, the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">13.  \(\frac{\tan x}{\sec x - 1} = \csc x + \cot x\)</h2>
+            <button onclick="toggleSolution(13)">Show Solution</button>
+            <div id="solution13" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Start with the left-hand side (LHS):</p>
+                <p>\[
+                    \frac{\tan x}{\sec x - 1} = \frac{\frac{\sin x}{\cos x}}{\frac{1}{\cos x} - 1}
+                \]</p>
+                <p>Simplify the denominator:</p>
+                <p>\[
+                    = \frac{\frac{\sin x}{\cos x}}{\frac{1 - \cos x}{\cos x}}
+                \]</p>
+                <p>\[
+                    = \frac{\sin x}{1 - \cos x}
+                \]</p>
+                <p>Multiply the numerator and denominator by \(1 + \cos x\):</p>
+                <p>\[
+                    = \frac{\sin x (1 + \cos x)}{1 - \cos^2 x}
+                \]</p>
+                <p>Use the identity \(1 - \cos^2 x = \sin^2 x\):</p>
+                <p>\[
+                    = \frac{\sin x (1 + \cos x)}{\sin^2 x}
+                \]</p>
+                <p>Simplify:</p>
+                <p>\[
+                    = \frac{1 + \cos x}{\sin x}
+                \]</p>
+                <p>\[
+                    = \frac{1}{\sin x} + \frac{\cos x}{\sin x}
+                \]</p>
+                <p>\[
+                    = \csc x + \cot x
+                \]</p>
+                <p>This is equal to the right-hand side (RHS), so the identity is verified.</p>
+            </div>
+        </div>
+
+        <div class="problem-container">
+            <h2 class="problem">14.  \(\frac{\sec x}{\csc x} - \cot x = \tan x - \frac{\csc x}{\sec x}\)</h2>
+            <button onclick="toggleSolution(14)">Show Solution</button>
+            <div id="solution14" class="solution">
+                <p><strong>Solution:</strong></p>
+                <p>Start with the left-hand side (LHS):</p>
+                <p>\[
+                    \frac{\sec x}{\csc x} - \cot x = \frac{\frac{1}{\cos x}}{\frac{1}{\sin x}} - \frac{\cos x}{\sin x}
+                \]</p>
+                <p>Simplify:</p>
+                <p>\[
+                    = \frac{\sin x}{\cos x} - \frac{\cos x}{\sin x}
+                \]</p>
+                <p>\[
+                    = \tan x - \cot x
+                \]</p>
+                <p>Now, work with the right-hand side (RHS):</p>
+                 <p>\[
+                     \tan x - \frac{\csc x}{\sec x} = \frac{\sin x}{\cos x} - \frac{\frac{1}{\sin x}}{\frac{1}{\cos x}}
+                 \]</p>
+                <p>Simplify:</p>
+                <p>\[
+                    = \frac{\sin x}{\cos x} - \frac{\cos x}{\sin x}
+                \]</p>
+                 <p>\[
+                    = \tan x - \cot x
+                \]</p>
+                <p>Since both the LHS and RHS simplify to the same expression, the identity is verified.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleSolution(problemNumber) {
+            var solution = document.getElementById("solution" + problemNumber);
+            if (solution.style.display === "none") {
+                solution.style.display = "block";
+                 MathJax.typesetPromise([solution]).then(() => {
+                    // console.log('Solutions rendered successfully!');
+                  }).catch((err) => {
+                    console.error('Error rendering solution:', err);
+                });
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

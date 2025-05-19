@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Angle Formula Questions</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .question {
+            margin: 15px 0;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 3px solid #007BFF;
+            margin-top: 10px;
+        }
+        .show-solution {
+            color: #007BFF;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .show-solution:hover {
+            color: #0056b3;
+        }
+        .math {
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Compound Angle Formula Exercises</h1>
+    <h2>Prove the following identities (Q1-Q14)</h2>
+
+    <div class="question">
+        <p>1. \( \cos\left(x + \frac{\pi}{3}\right) + \sqrt{3} \sin\left(x + \frac{\pi}{3}\right) = 2 \cos x \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution1')">Show solution</span>
+        <div id="solution1" class="solution">
+            <p>Let’s dive into proving the identity \( \cos\left(x + \frac{\pi}{3}\right) + \sqrt{3} \sin\left(x + \frac{\pi}{3}\right) = 2 \cos x \).</p>
+            <p>Start with the left-hand side: \( \cos\left(x + \frac{\pi}{3}\right) + \sqrt{3} \sin\left(x + \frac{\pi}{3}\right) \).</p>
+            <p>Use the compound angle formulas for cosine and sine:</p>
+            <p>\( \cos\left(x + \frac{\pi}{3}\right) = \cos x \cos \frac{\pi}{3} - \sin x \sin \frac{\pi}{3} \)</p>
+            <p>\( \sin\left(x + \frac{\pi}{3}\right) = \sin x \cos \frac{\pi}{3} + \cos x \sin \frac{\pi}{3} \)</p>
+            <p>Since \( \cos \frac{\pi}{3} = \frac{1}{2} \) and \( \sin \frac{\pi}{3} = \frac{\sqrt{3}}{2} \), substitute these values:</p>
+            <p>\( \cos\left(x + \frac{\pi}{3}\right) = \cos x \cdot \frac{1}{2} - \sin x \cdot \frac{\sqrt{3}}{2} = \frac{\cos x}{2} - \frac{\sqrt{3} \sin x}{2} \)</p>
+            <p>\( \sin\left(x + \frac{\pi}{3}\right) = \sin x \cdot \frac{1}{2} + \cos x \cdot \frac{\sqrt{3}}{2} = \frac{\sin x}{2} + \frac{\sqrt{3} \cos x}{2} \)</p>
+            <p>Now compute the left-hand side:</p>
+            <p>\( \cos\left(x + \frac{\pi}{3}\right) + \sqrt{3} \sin\left(x + \frac{\pi}{3}\right) = \left( \frac{\cos x}{2} - \frac{\sqrt{3} \sin x}{2} \right) + \sqrt{3} \left( \frac{\sin x}{2} + \frac{\sqrt{3} \cos x}{2} \right) \)</p>
+            <p>Distribute \( \sqrt{3} \):</p>
+            <p>\( \sqrt{3} \left( \frac{\sin x}{2} + \frac{\sqrt{3} \cos x}{2} \right) = \frac{\sqrt{3} \sin x}{2} + \frac{\sqrt{3} \cdot \sqrt{3} \cos x}{2} = \frac{\sqrt{3} \sin x}{2} + \frac{3 \cos x}{2} \)</p>
+            <p>Combine all terms:</p>
+            <p>\( \frac{\cos x}{2} - \frac{\sqrt{3} \sin x}{2} + \frac{\sqrt{3} \sin x}{2} + \frac{3 \cos x}{2} \)</p>
+            <p>The \( -\frac{\sqrt{3} \sin x}{2} + \frac{\sqrt{3} \sin x}{2} \) terms cancel out, leaving:</p>
+            <p>\( \frac{\cos x}{2} + \frac{3 \cos x}{2} = \frac{\cos x + 3 \cos x}{2} = \frac{4 \cos x}{2} = 2 \cos x \)</p>
+            <p>This matches the right-hand side, \( 2 \cos x \), so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>2. \( \cos\left(x - \frac{\pi}{6}\right) + \sqrt{3} \sin\left(x - \frac{\pi}{6}\right) = 2 \sin x \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution2')">Show solution</span>
+        <div id="solution2" class="solution">
+            <p>Let’s prove the identity \( \cos\left(x - \frac{\pi}{6}\right) + \sqrt{3} \sin\left(x - \frac{\pi}{6}\right) = 2 \sin x \).</p>
+            <p>Start with the left-hand side: \( \cos\left(x - \frac{\pi}{6}\right) + \sqrt{3} \sin\left(x - \frac{\pi}{6}\right) \).</p>
+            <p>Use the compound angle formulas:</p>
+            <p>\( \cos\left(x - \frac{\pi}{6}\right) = \cos x \cos \frac{\pi}{6} + \sin x \sin \frac{\pi}{6} \)</p>
+            <p>\( \sin\left(x - \frac{\pi}{6}\right) = \sin x \cos \frac{\pi}{6} - \cos x \sin \frac{\pi}{6} \)</p>
+            <p>Since \( \cos \frac{\pi}{6} = \frac{\sqrt{3}}{2} \) and \( \sin \frac{\pi}{6} = \frac{1}{2} \), substitute:</p>
+            <p>\( \cos\left(x - \frac{\pi}{6}\right) = \cos x \cdot \frac{\sqrt{3}}{2} + \sin x \cdot \frac{1}{2} = \frac{\sqrt{3} \cos x}{2} + \frac{\sin x}{2} \)</p>
+            <p>\( \sin\left(x - \frac{\pi}{6}\right) = \sin x \cdot \frac{\sqrt{3}}{2} - \cos x \cdot \frac{1}{2} = \frac{\sqrt{3} \sin x}{2} - \frac{\cos x}{2} \)</p>
+            <p>Now compute the left-hand side:</p>
+            <p>\( \cos\left(x - \frac{\pi}{6}\right) + \sqrt{3} \sin\left(x - \frac{\pi}{6}\right) = \left( \frac{\sqrt{3} \cos x}{2} + \frac{\sin x}{2} \right) + \sqrt{3} \left( \frac{\sqrt{3} \sin x}{2} - \frac{\cos x}{2} \right) \)</p>
+            <p>Distribute \( \sqrt{3} \):</p>
+            <p>\( \sqrt{3} \left( \frac{\sqrt{3} \sin x}{2} - \frac{\cos x}{2} \right) = \frac{\sqrt{3} \cdot \sqrt{3} \sin x}{2} - \frac{\sqrt{3} \cos x}{2} = \frac{3 \sin x}{2} - \frac{\sqrt{3} \cos x}{2} \)</p>
+            <p>Combine all terms:</p>
+            <p>\( \frac{\sqrt{3} \cos x}{2} + \frac{\sin x}{2} + \frac{3 \sin x}{2} - \frac{\sqrt{3} \cos x}{2} \)</p>
+            <p>The \( \frac{\sqrt{3} \cos x}{2} - \frac{\sqrt{3} \cos x}{2} \) terms cancel, leaving:</p>
+            <p>\( \frac{\sin x}{2} + \frac{3 \sin x}{2} = \frac{\sin x + 3 \sin x}{2} = \frac{4 \sin x}{2} = 2 \sin x \)</p>
+            <p>This matches the right-hand side, \( 2 \sin x \), so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>3. \( \tan\left(\frac{\pi}{4} + x\right) - \tan\left(\frac{\pi}{4} - x\right) = \frac{4 \tan x}{2 - \sec^2 x} \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution3')">Show solution</span>
+        <div id="solution3" class="solution">
+            <p>Let’s prove the identity \( \tan\left(\frac{\pi}{4} + x\right) - \tan\left(\frac{\pi}{4} - x\right) = \frac{4 \tan x}{2 - \sec^2 x} \).</p>
+            <p>Start with the left-hand side: \( \tan\left(\frac{\pi}{4} + x\right) - \tan\left(\frac{\pi}{4} - x\right) \).</p>
+            <p>Use the tangent compound angle formula: \( \tan(a \pm b) = \frac{\tan a \pm \tan b}{1 \mp \tan a \tan b} \).</p>
+            <p>Since \( \tan \frac{\pi}{4} = 1 \):</p>
+            <p>\( \tan\left(\frac{\pi}{4} + x\right) = \frac{\tan \frac{\pi}{4} + \tan x}{1 - \tan \frac{\pi}{4} \tan x} = \frac{1 + \tan x}{1 - \tan x} \)</p>
+            <p>\( \tan\left(\frac{\pi}{4} - x\right) = \frac{\tan \frac{\pi}{4} - \tan x}{1 + \tan \frac{\pi}{4} \tan x} = \frac{1 - \tan x}{1 + \tan x} \)</p>
+            <p>Compute the left-hand side:</p>
+            <p>\( \tan\left(\frac{\pi}{4} + x\right) - \tan\left(\frac{\pi}{4} - x\right) = \frac{1 + \tan x}{1 - \tan x} - \frac{1 - \tan x}{1 + \tan x} \)</p>
+            <p>Find a common denominator, \( (1 - \tan x)(1 + \tan x) \):</p>
+            <p>\( \frac{(1 + \tan x)(1 + \tan x) - (1 - \tan x)(1 - \tan x)}{(1 - \tan x)(1 + \tan x)} \)</p>
+            <p>Expand the numerator:</p>
+            <p>\( (1 + \tan x)^2 = 1 + 2 \tan x + \tan^2 x \)</p>
+            <p>\( (1 - \tan x)^2 = 1 - 2 \tan x + \ Wan^2 x \)</p>
+            <p>\( (1 + \tan x)^2 - (1 - \tan x)^2 = (1 + 2 \tan x + \tan^2 x) - (1 - 2 \tan x + \tan^2 x) = 4 \tan x \)</p>
+            <p>The denominator is:</p>
+            <p>\( (1 - \tan x)(1 + \tan x) = 1 - \tan^2 x \)</p>
+            <p>So, the left-hand side becomes:</p>
+            <p>\( \frac{4 \tan x}{1 - \tan^2 x} \)</p>
+            <p>Now, simplify the right-hand side: \( \frac{4 \tan x}{2 - \sec^2 x} \).</p>
+            <p>Since \( \sec^2 x = 1 + \tan^2 x \), we have:</p>
+            <p>\( 2 - \sec^2 x = 2 - (1 + \tan^2 x) = 1 - \tan^2 x \)</p>
+            <p>Thus, the right-hand side is:</p>
+            <p>\( \frac{4 \tan x}{1 - \tan^2 x} \)</p>
+            <p>Both sides match, so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>4. \( \cos(x + y) + \cos(x - y) = 2 \cos x \cos y \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution4')">Show solution</span>
+        <div id="solution4" class="solution">
+            <p>Let’s prove the identity \( \cos(x + y) + \cos(x - y) = 2 \cos x \cos y \).</p>
+            <p>Start with the left-hand side: \( \cos(x + y) + \cos(x - y) \).</p>
+            <p>Use the cosine compound angle formulas:</p>
+            <p>\( \cos(x + y) = \cos x \cos y - \sin x \sin y \)</p>
+            <p>\( \cos(x - y) = \cos x \cos y + \sin x \sin y \)</p>
+            <p>Add them:</p>
+            <p>\( \cos(x + y) + \cos(x - y) = (\cos x \cos y - \sin x \sin y) + (\cos x \cos y + \sin x \sin y) \)</p>
+            <p>Combine like terms:</p>
+            <p>\( \cos x \cos y - \sin x \sin y + \cos x \cos y + \sin x \sin y = 2 \cos x \cos y \)</p>
+            <p>This matches the right-hand side, \( 2 \cos x \cos y \), so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>5. \( \cos(x + y) - \cos(x - y) = -2 \sin x \sin y \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution5')">Show solution</span>
+        <div id="solution5" class="solution">
+            <p>Let’s prove the identity \( \cos(x + y) - \cos(x - y) = -2 \sin x \sin y \).</p>
+            <p>Start with the left-hand side: \( \cos(x + y) - \cos(x - y) \).</p>
+            <p>Use the cosine compound angle formulas:</p>
+            <p>\( \cos(x + y) = \cos x \cos y - \sin x \sin y \)</p>
+            <p>\( \cos(x - y) = \cos x \cos y + \sin x \sin y \)</p>
+            <p>Subtract them:</p>
+            <p>\( \cos(x + y) - \cos(x - y) = (\cos x \cos y - \sin x \sin y) - (\cos x \cos y + \sin x \sin y) \)</p>
+            <p>Combine like terms:</p>
+            <p>\( \cos x \cos y - \sin x \sin y - \cos x \cos y - \sin x \sin y = -2 \sin x \sin y \)</p>
+            <p>This matches the right-hand side, \( -2 \sin x \sin y \), so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>6. \( \sin(x + y) + \sin(x - y) = 2 \sin x \cos y \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution6')">Show solution</span>
+        <div id="solution6" class="solution">
+            <p>Let’s prove the identity \( \sin(x + y) + \sin(x - y) = 2 \sin x \cos y \).</p>
+            <p>Start with the left-hand side: \( \sin(x + y) + \sin(x - y) \).</p>
+            <p>Use the sine compound angle formulas:</p>
+            <p>\( \sin(x + y) = \sin x \cos y + \cos x \sin y \)</p>
+            <p>\( \sin(x - y) = \sin x \cos y - \cos x \sin y \)</p>
+            <p>Add them:</p>
+            <p>\( \sin(x + y) + \sin(x - y) = (\sin x \cos y + \cos x \sin y) + (\sin x \cos y - \cos x \sin y) \)</p>
+            <p>Combine like terms:</p>
+            <p>\( \sin x \cos y + \cos x \sin y + \sin x \cos y - \cos x \sin y = 2 \sin x \cos y \)</p>
+            <p>This matches the right-hand side, \( 2 \sin x \cos y \), so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>7. \( \sin(x + y) - \sin(x - y) = 2 \cos x \sin y \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution7')">Show solution</span>
+        <div id="solution7" class="solution">
+            <p>Let’s prove the identity \( \sin(x + y) - \sin(x - y) = 2 \cos x \sin y \).</p>
+            <p>Start with the left-hand side: \( \sin(x + y) - \sin(x - y) \).</p>
+            <p>Use the sine compound angle formulas:</p>
+            <p>\( \sin(x + y) = \sin x \cos y + \cos x \sin y \)</p>
+            <p>\( \sin(x - y) = \sin x \cos y - \cos x \sin y \)</p>
+            <p>Subtract them:</p>
+            <p>\( \sin(x + y) - \sin(x - y) = (\sin x \cos y + \cos x \sin y) - (\sin x \cos y - \cos x \sin y) \)</p>
+            <p>Combine like terms:</p>
+            <p>\( \sin x \cos y + \cos x \sin y - \sin x \cos y + \cos x \sin y = 2 \cos x \sin y \)</p>
+            <p>This matches the right-hand side, \( 2 \cos x \sin y \), so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>8. \( \sin(x + y) \sin(x - y) = \cos^2 y - \cos^2 x \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution8')">Show solution</span>
+        <div id="solution8" class="solution">
+            <p>Let’s prove the identity \( \sin(x + y) \sin(x - y) = \cos^2 y - \cos^2 x \).</p>
+            <p>Start with the left-hand side: \( \sin(x + y) \sin(x - y) \).</p>
+            <p>Use the sine compound angle formulas:</p>
+            <p>\( \sin(x + y) = \sin x \cos y + \cos x \sin y \)</p>
+            <p>\( \sin(x - y) = \sin x \cos y - \cos x \sin y \)</p>
+            <p>Multiply them:</p>
+            <p>\( \sin(x + y) \sin(x - y) = (\sin x \cos y + \cos x \sin y)(\sin x \cos y - \cos x \sin y) \)</p>
+            <p>This is a difference of squares: \( (a + b)(a - b) = a^2 - b^2 \), where \( a = \sin x \cos y \), \( b = \cos x \sin y \).</p>
+            <p>\( (\sin x \cos y)^2 - (\cos x \sin y)^2 = \sin^2 x \cos^2 y - \cos^2 x \sin^2 y \)</p>
+            <p>Factorize:</p>
+            <p>\( \sin^2 x \cos^2 y - \cos^2 x \sin^2 y = (\cos^2 y - \cos^2 x)(\sin^2 x - \sin^2 y) \)</p>
+            <p>Simplify the right-hand side: \( \cos^2 y - \cos^2 x \).</p>
+            <p>Alternatively, use trigonometric identities:</p>
+            <p>\( \cos^2 y - \cos^2 x = (1 - \sin^2 y) - (1 - \sin^2 x) = \sin^2 x - \sin^2 y \)</p>
+            <p>Thus, the left-hand side becomes \( \sin^2 x - \sin^2 y \), but we need \( \cos^2 y - \cos^2 x \). Let’s try the right-hand side manipulation:</p>
+            <p>\( \cos^2 y - \cos^2 x = (1 - \sin^2 y) - (1 - \sin^2 x) = \sin^2 x - \sin^2 y \).</p>
+            <p>Recompute the left-hand side correctly:</p>
+            <p>\( \sin^2 x \cos^2 y - \cos^2 x \sin^2 y = \cos^2 y (1 - \sin^2 x) - \sin^2 y (1 - \cos^2 x) = \cos^2 y - \sin^2 y \).</p>
+            <p>Adjust using identities if needed, but let’s verify:</p>
+            <p>The correct form should be derived. Let’s use product-to-sum identities:</p>
+            <p>\( \sin(x + y) \sin(x - y) = \frac{1}{2} [\cos((x + y) - (x - y)) - \cos((x + y) + (x - y))] \)</p>
+            <p>\( = \frac{1}{2} [\cos(2y) - \cos(2x)] \)</p>
+            <p>\( \cos 2y = 2 \cos^2 y - 1 \), \( \cos 2x = 2 \cos^2 x - 1 \):</p>
+            <p>\( \frac{1}{2} [(2 \cos^2 y - 1) - (2 \cos^2 x - 1)] = \frac{1}{2} [2 \cos^2 y - 2 \cos^2 x] = \cos^2 y - \cos^2 x \)</p>
+            <p>This matches the right-hand side, so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>9. \( \cos(x + y) \cos(x - y) = \cos^2 x + \cos^2 y - 1 \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution9')">Show solution</span>
+        <div id="solution9" class="solution">
+            <p>Let’s prove the identity \( \cos(x + y) \cos(x - y) = \cos^2 x + \cos^2 y - 1 \).</p>
+            <p>Start with the left-hand side: \( \cos(x + y) \cos(x - y) \).</p>
+            <p>Use the cosine compound angle formulas:</p>
+            <p>\( \cos(x + y) = \cos x \cos y - \sin x \sin y \)</p>
+            <p>\( \cos(x - y) = \cos x \cos y + \sin x \sin y \)</p>
+            <p>Multiply them:</p>
+            <p>\( \cos(x + y) \cos(x - y) = (\cos x \cos y - \sin x \sin y)(\cos x \cos y + \sin x \sin y) \)</p>
+            <p>This is a difference of squares:</p>
+            <p>\( (\cos x \cos y)^2 - (\sin x \sin y)^2 = \cos^2 x \cos^2 y - \sin^2 x \sin^2 y \)</p>
+            <p>Rewrite the right-hand side: \( \cos^2 x + \cos^2 y - 1 \).</p>
+            <p>Use product-to-sum identities:</p>
+            <p>\( \cos(x + y) \cos(x - y) = \frac{1}{2} [\cos((x + y) + (x - y)) + \cos((x + y) - (x - y))] \)</p>
+            <p>\( = \frac{1}{2} [\cos(2x) + \cos(2y)] \)</p>
+            <p>\( \cos 2x = 2 \cos^2 x - 1 \), \( \cos 2y = 2 \cos^2 y - 1 \):</p>
+            <p>\( \frac{1}{2} [(2 \cos^2 x - 1) + (2 \cos^2 y - 1)] = \frac{1}{2} [2 \cos^2 x + 2 \cos^2 y - 2] = \cos^2 x + \cos^2 y - 1 \)</p>
+            <p>This matches the right-hand side, so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>10. \( \sin 2x = 2 \sin x \cos x \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution10')">Show solution</span>
+        <div id="solution10" class="solution">
+            <p>Let’s prove the identity \( \sin 2x = 2 \sin x \cos x \).</p>
+            <p>Start with the left-hand side: \( \sin 2x \).</p>
+            <p>Use the sine double-angle formula: \( \sin(2x) = \sin(x + x) \).</p>
+            <p>\( \sin(x + x) = \sin x \cos x + \cos x \sin x = 2 \sin x \cos x \)</p>
+            <p>This matches the right-hand side, \( 2 \sin x \cos x \), so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>11. \( \cos 2x = \cos^2 x - \sin^2 x \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution11')">Show solution</span>
+        <div id="solution11" class="solution">
+            <p>Let’s prove the identity \( \cos 2x = \cos^2 x - \sin^2 x \).</p>
+            <p>Start with the left-hand side: \( \cos 2x \).</p>
+            <p>Use the cosine double-angle formula: \( \cos(2x) = \cos(x + x) \).</p>
+            <p>\( \cos(x + x) = \cos x \cos x - \sin x \sin x = \cos^2 x - \sin^2 x \)</p>
+            <p>This matches the right-hand side, \( \cos^2 x - \sin^2 x \), so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>12. \( \tan 2x = \frac{2 \tan x}{1 - \tan^2 x} \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution12')">Show solution</span>
+        <div id="solution12" class="solution">
+            <p>Let’s prove the identity \( \tan 2x = \frac{2 \tan x}{1 - \tan^2 x} \).</p>
+            <p>Start with the left-hand side: \( \tan 2x \).</p>
+            <p>Use the tangent double-angle formula: \( \tan(2x) = \tan(x + x) \).</p>
+            <p>\( \tan(x + x) = \frac{\tan x + \tan x}{1 - \tan x \tan x} = \frac{2 \tan x}{1 - \tan^2 x} \)</p>
+            <p>This matches the right-hand side, so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>13. \( \cot(x + y) = \frac{\cot x \cot y - 1}{\cot x + \cot y} \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution13')">Show solution</span>
+        <div id="solution13" class="solution">
+            <p>Let’s prove the identity \( \cot(x + y) = \frac{\cot x \cot y - 1}{\cot x + \cot y} \).</p>
+            <p>Start with the left-hand side: \( \cot(x + y) \).</p>
+            <p>Since \( \cot \theta = \frac{\cos \theta}{\sin \theta} \), use the compound angle formulas:</p>
+            <p>\( \cos(x + y) = \cos x \cos y - \sin x \sin y \)</p>
+            <p>\( \sin(x + y) = \sin x \cos y + \cos x \sin y \)</p>
+            <p>Alternatively, use the tangent formula and convert:</p>
+            <p>\( \cot(x + y) = \frac{1}{\tan(x + y)} \), where \( \tan(x + y) = \frac{\tan x + \tan y}{1 - \tan x \tan y} \).</p>
+            <p>Since \( \cot x = \frac{1}{\tan x} \), we have:</p>
+            <p>\( \tan(x + y) = \frac{\frac{1}{\cot x} + \frac{1}{\cot y}}{1 - \frac{1}{\cot x} \cdot \frac{1}{\cot y}} = \frac{\cot y + \cot x}{\cot x \cot y - 1} \)</p>
+            <p>Thus:</p>
+            <p>\( \cot(x + y) = \frac{1}{\tan(x + y)} = \frac{\cot x \cot y - 1}{\cot x + \cot y} \)</p>
+            <p>This matches the right-hand side, so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>14. \( \frac{\cos(x + y) - \cos(x - y)}{\sin(x + y) + \sin(x - y)} = -\tan y \)</p>
+        <span class="show-solution" onclick="toggleSolution('solution14')">Show solution</span>
+        <div id="solution14" class="solution">
+            <p>Let’s prove the identity \( \frac{\cos(x + y) - \cos(x - y)}{\sin(x + y) + \sin(x - y)} = -\tan y \).</p>
+            <p>Start with the numerator: \( \cos(x + y) - \cos(x - y) \).</p>
+            <p>From identity 5: \( \cos(x + y) - \cos(x - y) = -2 \sin x \sin y \).</p>
+            <p>Now the denominator: \( \sin(x + y) + \sin(x - y) \).</p>
+            <p>From identity 6: \( \sin(x + y) + \sin(x - y) = 2 \sin x \cos y \).</p>
+            <p>So the expression becomes:</p>
+            <p>\( \frac{-2 \sin x \sin y}{2 \sin x \cos y} \)</p>
+            <p>Assuming \( \sin x \neq 0 \), cancel \( 2 \sin x \):</p>
+            <p>\( \frac{-\sin y}{\cos y} = -\tan y \)</p>
+            <p>This matches the right-hand side, so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>15. If \( A + B + C = \pi \), show that \( \tan A + \tan B + \tan C = \tan A \tan B \tan C \).</p>
+        <span class="show-solution" onclick="toggleSolution('solution15')">Show solution</span>
+        <div id="solution15" class="solution">
+            <p>Given \( A + B + C = \pi \), we need to show \( \tan A + \tan B + \tan C = \tan A \tan B \tan C \).</p>
+            <p>Since \( A + B + C = \pi \), we have \( C = \pi - (A + B) \).</p>
+            <p>Use the tangent identity: \( \tan(\pi - \theta) = -\tan \theta \).</p>
+            <p>Thus, \( \tan C = \tan(\pi - (A + B)) = -\tan(A + B) \).</p>
+            <p>The left-hand side is: \( \tan A + \tan B + \tan C = \tan A + \tan B - \tan(A + B) \).</p>
+            <p>Use the tangent addition formula:</p>
+            <p>\( \tan(A + B) = \frac{\tan A + \tan B}{1 - \tan A \tan B} \).</p>
+            <p>So:</p>
+            <p>\( \tan A + \tan B - \tan(A + B) = \tan A + \tan B - \frac{\tan A + \tan B}{1 - \tan A \tan B} \).</p>
+            <p>Factor out \( \tan A + \tan B \):</p>
+            <p>\( (\tan A + \tan B) \left( 1 - \frac{1}{1 - \tan A \tan B} \right) \).</p>
+            <p>Simplify the second term:</p>
+            <p>\( 1 - \frac{1}{1 - \tan A \tan B} = \frac{(1 - \tan A \tan B) - 1}{1 - \tan A \tan B} = \frac{-\tan A \tan B}{1 - \tan A \tan B} \).</p>
+            <p>Thus:</p>
+            <p>\( (\tan A + \tan B) \cdot \frac{-\tan A \tan B}{1 - \tan A \tan B} \).</p>
+            <p>We need the right-hand side: \( \tan A \tan B \tan C \).</p>
+            <p>Since \( \tan C = -\tan(A + B) = -\frac{\tan A + \tan B}{1 - \tan A \tan B} \), compute:</p>
+            <p>\( \tan A \tan B \tan C = \tan A \tan B \left( -\frac{\tan A + \tan B}{1 - \tan A \tan B} \right) = -\frac{\tan A \tan B (\tan A + \tan B)}{1 - \tan A \tan B} \).</p>
+            <p>Adjust the left-hand side:</p>
+            <p>\( (\tan A + \tan B) \cdot \frac{-\tan A \tan B}{1 - \tan A \tan B} = -\frac{(\tan A + \tan B) \tan A \tan B}{1 - \tan A \tan B} \).</p>
+            <p>This matches the right-hand side, so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>16. If \( A = B + C \) and \( A + B = \frac{\pi}{2} \), show that \( \tan A = \tan B + 2 \tan C \).</p>
+        <span class="show-solution" onclick="toggleSolution('solution16')">Show solution</span>
+        <div id="solution16" class="solution">
+            <p>Given \( A = B + C \) and \( A + B = \frac{\pi}{2} \), we need to show \( \tan A = \tan B + 2 \tan C \).</p>
+            <p>From \( A + B = \frac{\pi}{2} \), we have \( B = \frac{\pi}{2} - A \).</p>
+            <p>Thus, \( \tan B = \tan\left(\frac{\pi}{2} - A\right) = \cot A = \frac{1}{\tan A} \).</p>
+            <p>Since \( A = B + C \), we have \( C = A - B \).</p>
+            <p>Substitute \( B = \frac{\pi}{2} - A \):</p>
+            <p>\( C = A - \left(\frac{\pi}{2} - A\right) = 2A - \frac{\pi}{2} \).</p>
+            <p>Thus, \( \tan C = \tan\left(2A - \frac{\pi}{2}\right) = \tan\left(2A - \frac{\pi}{2}\right) = -\cot 2A = -\frac{1}{\tan 2A} \).</p>
+            <p>Use the double-angle formula: \( \tan 2A = \frac{2 \tan A}{1 - \tan^2 A} \).</p>
+            <p>So, \( \tan C = -\frac{1 - \tan^2 A}{2 \tan A} \).</p>
+            <p>Right-hand side: \( \tan B + 2 \tan C = \frac{1}{\tan A} + 2 \left( -\frac{1 - \tan^2 A}{2 \tan A} \right) \).</p>
+            <p>Simplify:</p>
+            <p>\( 2 \left( -\frac{1 - \tan^2 A}{2 \tan A} \right) = -\frac{1 - \tan^2 A}{\tan A} \).</p>
+            <p>\( \tan B + 2 \tan C = \frac{1}{\tan A} - \frac{1 - \tan^2 A}{\tan A} = \frac{1 - (1 - \tan^2 A)}{\tan A} = \frac{\tan^2 A}{\tan A} = \tan A \).</p>
+            <p>This matches the left-hand side, \( \tan A \), so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>17. Show that \( \tan x + \tan\left(\frac{5\pi}{4} - x\right) + \tan x \tan\left(\frac{5\pi}{4} - x\right) = 1 \). Hence show that \( \tan \frac{7\pi}{12} = -2 - \sqrt{3} \).</p>
+        <span class="show-solution" onclick="toggleSolution('solution17')">Show solution</span>
+        <div id="solution17" class="solution">
+            <p>Let’s prove the identity \( \tan x + \tan\left(\frac{5\pi}{4} - x\right) + \tan x \tan\left(\frac{5\pi}{4} - x\right) = 1 \).</p>
+            <p>Denote \( y = \frac{5\pi}{4} - x \). The expression becomes:</p>
+            <p>\( \tan x + \tan y + \tan x \tan y \).</p>
+            <p>Since \( y = \frac{5\pi}{4} - x \), compute \( \tan y \):</p>
+            <p>\( \tan\left(\frac{5\pi}{4} - x\right) = \frac{\tan \frac{5\pi}{4} - \tan x}{1 + \tan \frac{5\pi}{4} \tan x} \).</p>
+            <p>Since \( \frac{5\pi}{4} = \pi + \frac{\pi}{4} \), \( \tan \frac{5\pi}{4} = \tan \frac{\pi}{4} = 1 \).</p>
+            <p>Thus:</p>
+            <p>\( \tan y = \frac{1 - \tan x}{1 + \tan x} \).</p>
+            <p>Let \( t = \tan x \). Then:</p>
+            <p>\( \tan y = \frac{1 - t}{1 + t} \).</p>
+            <p>Compute the expression:</p>
+            <p>\( \tan x + \tan y + \tan x \tan y = t + \frac{1 - t}{1 + t} + t \cdot \frac{1 - t}{1 + t} \).</p>
+            <p>Simplify the third term:</p>
+            <p>\( t \cdot \frac{1 - t}{1 + t} \).</p>
+            <p>Combine the first two terms over a common denominator:</p>
+            <p>\( t + \frac{1 - t}{1 + t} = \frac{t(1 + t) + (1 - t)}{1 + t} = \frac{t + t^2 + 1 - t}{1 + t} = \frac{t^2 + 1}{1 + t} \).</p>
+            <p>Add the third term:</p>
+            <p>\( \frac{t^2 + 1}{1 + t} + \frac{t(1 - t)}{1 + t} = \frac{t^2 + 1 + t - t^2}{1 + t} = \frac{1 + t}{1 + t} = 1 \).</p>
+            <p>Thus, the identity holds.</p>
+            <p>Now, show \( \tan \frac{7\pi}{12} = -2 - \sqrt{3} \).</p>
+            <p>Let \( x = \frac{\pi}{3} \) (since \( \frac{\pi}{3} = \frac{4\pi}{12} \), and we need \( \frac{7\pi}{12} \)).</p>
+            <p>Then:</p>
+            <p>\( y = \frac{5\pi}{4} - \frac{\pi}{3} = \frac{15\pi}{12} - \frac{4\pi}{12} = \frac{11\pi}{12} \).</p>
+            <p>Check the sum:</p>
+            <p>\( x + y = \frac{\pi}{3} + \frac{11\pi}{12} = \frac{4\pi}{12} + \frac{11\pi}{12} = \frac{15\pi}{12} = \frac{5\pi}{4} \).</p>
+            <p>We need \( \tan(x + y) = \tan \frac{5\pi}{4} = 1 \).</p>
+            <p>From the identity, \( \tan x + \tan y + \tan x \tan y = 1 \).</p>
+            <p>Thus, \( \tan(x + y) = 1 \), which is correct.</p>
+            <p>Compute \( \tan \frac{7\pi}{12} \). Let’s use \( \frac{7\pi}{12} = \frac{\pi}{3} + \frac{\pi}{4} \):</p>
+            <p>\( \tan\left(\frac{\pi}{3} + \frac{\pi}{4}\right) = \frac{\tan \frac{\pi}{3} + \tan \frac{\pi}{4}}{1 - \tan \frac{\pi}{3} \tan \frac{\pi}{4}} \).</p>
+            <p>\( \tan \frac{\pi}{3} = \sqrt{3} \), \( \tan \frac{\pi}{4} = 1 \).</p>
+            <p>\( \tan\left(\frac{\pi}{3} + \frac{\pi}{4}\right) = \frac{\sqrt{3} + 1}{1 - \sqrt{3} \cdot 1} = \frac{\sqrt{3} + 1}{1 - \sqrt{3}} \).</p>
+            <p>Rationalize the denominator:</p>
+            <p>\( \frac{\sqrt{3} + 1}{1 - \sqrt{3}} \cdot \frac{1 + \sqrt{3}}{1 + \sqrt{3}} = \frac{(\sqrt{3} + 1)(1 + \sqrt{3})}{1 - 3} = \frac{\sqrt{3} + 3 + 1 + \sqrt{3}}{-2} = \frac{2 \sqrt{3} + 4}{-2} = -(\sqrt{3} + 2) \).</p>
+            <p>Thus, \( \tan \frac{7\pi}{12} = -2 - \sqrt{3} \), as required.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>18. Suppose \( \sin x = \frac{12}{13} \), where \( 0 < x < \frac{\pi}{2} \), and \( \cos y = -\frac{3}{5} \), where \( \pi < y < \frac{3\pi}{2} \). Prove that, without finding \( x \) and \( y \), \( \sin(x + y) = -\frac{56}{65} \).</p>
+        <span class="show-solution" onclick="toggleSolution('solution18')">Show solution</span>
+        <div id="solution18" class="solution">
+            <p>We need to prove \( \sin(x + y) = -\frac{56}{65} \), given \( \sin x = \frac{12}{13} \), \( 0 < x < \frac{\pi}{2} \), and \( \cos y = -\frac{3}{5} \), \( \pi < y < \frac{3\pi}{2} \).</p>
+            <p>Use the sine compound angle formula:</p>
+            <p>\( \sin(x + y) = \sin x \cos y + \cos x \sin y \).</p>
+            <p>We have \( \sin x = \frac{12}{13} \). Since \( 0 < x < \frac{\pi}{2} \), \( \cos x > 0 \). Compute \( \cos x \):</p>
+            <p>\( \cos^2 x = 1 - \sin^2 x = 1 - \left(\frac{12}{13}\right)^2 = 1 - \frac{144}{169} = \frac{25}{169} \).</p>
+            <p>\( \cos x = \frac{5}{13} \).</p>
+            <p>Given \( \cos y = -\frac{3}{5} \). Since \( \pi < y < \frac{3\pi}{2} \), \( \sin y < 0 \). Compute \( \sin y \):</p>
+            <p>\( \sin^2 y = 1 - \cos^2 y = 1 - \left(-\frac{3}{5}\right)^2 = 1 - \frac{9}{25} = \frac{16}{25} \).</p>
+            <p>\( \sin y = -\frac{4}{5} \).</p>
+            <p>Now compute:</p>
+            <p>\( \sin x \cos y = \frac{12}{13} \cdot \left(-\frac{3}{5}\right) = -\frac{36}{65} \).</p>
+            <p>\( \cos x \sin y = \frac{5}{13} \cdot \left(-\frac{4}{5}\right) = -\frac{20}{65} \).</p>
+            <p>\( \sin(x + y) = -\frac{36}{65} - \frac{20}{65} = -\frac{56}{65} \).</p>
+            <p>This matches the required value, so the identity is proven.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>19. If \( \tan(x + y) = 1 \), \( \tan x = \frac{1}{4} \), find \( \sin y \), where \( 0 < x < \frac{\pi}{2} \) and \( 0 < y < \frac{\pi}{2} \).</p>
+        <span class="show-solution" onclick="toggleSolution('solution19')">Show solution</span>
+        <div id="solution19" class="solution">
+            <p>We need to find \( \sin y \) given \( \tan(x + y) = 1 \), \( \tan x = \frac{1}{4} \), and \( 0 < x < \frac{\pi}{2} \), \( 0 < y < \frac{\pi}{2} \).</p>
+            <p>Use the tangent addition formula:</p>
+            <p>\( \tan(x + y) = \frac{\tan x + \tan y}{1 - \tan x \tan y} \).</p>
+            <p>Given \( \tan(x + y) = 1 \) and \( \tan x = \frac{1}{4} \), let \( \tan y = t \). Then:</p>
+            <p>\( \frac{\frac{1}{4} + t}{1 - \frac{1}{4} t} = 1 \).</p>
+            <p>Multiply through by \( 1 - \frac{1}{4} t \):</p>
+            <p>\( \frac{1}{4} + t = 1 - \frac{1}{4} t \).</p>
+            <p>Combine like terms:</p>
+            <p>\( t + \frac{1}{4} t = 1 - \frac{1}{4} \).</p>
+            <p>\( \frac{5}{4} t = \frac{3}{4} \).</p>
+            <p>\( t = \frac{3}{4} \cdot \frac{4}{5} = \frac{3}{5} \).</p>
+            <p>Thus, \( \tan y = \frac{3}{5} \).</p>
+            <p>Since \( 0 < y < \frac{\pi}{2} \), \( \sin y > 0 \), \( \cos y > 0 \). Use the identity \( \sec^2 y = 1 + \tan^2 y \):</p>
+            <p>\( \sec^2 y = 1 + \left(\frac{3}{5}\right)^2 = 1 + \frac{9}{25} = \frac{34}{25} \).</p>
+            <p>\( \sec y = \frac{\sqrt{34}}{5} \), so \( \cos y = \frac{5}{\sqrt{34}} \).</p>
+            <p>Now, \( \tan y = \frac{\sin y}{\cos y} \), so:</p>
+            <p>\( \sin y = \tan y \cos y = \frac{3}{5} \cdot \frac{5}{\sqrt{34}} = \frac{3}{\sqrt{34}} \).</p>
+            <p>Rationalize the denominator:</p>
+            <p>\( \sin y = \frac{3 \sqrt{34}}{34} \).</p>
+            <p>Verify using \( \sin^2 y + \cos^2 y = 1 \):</p>
+            <p>\( \sin^2 y = \left( \frac{3}{\sqrt{34}} \right)^2 = \frac{9}{34} \).</p>
+            <p>\( \cos^2 y = \left( \frac{5}{\sqrt{34}} \right)^2 = \frac{25}{34} \).</p>
+            <p>\( \frac{9}{34} + \frac{25}{34} = \frac{34}{34} = 1 \), which is correct.</p>
+            <p>Thus, \( \sin y = \frac{3 \sqrt{34}}{34} \).</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSolution(id) {
+            const solution = document.getElementById(id);
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+            // Re-render MathJax after toggling
+            MathJax.typesetPromise();
+        }
+    </script>
+</body>
+</html>

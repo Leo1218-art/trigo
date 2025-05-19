@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometric Equations Quiz</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 3px solid #007BFF;
+        }
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #tryAgain {
+            background-color: #28a745;
+        }
+        #tryAgain:hover {
+            background-color: #218838;
+        }
+        .math {
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trigonometric Equations Quiz</h1>
+    <p>Solve the following 10 trigonometric equations. Click "Show Solution" to view the answer and detailed steps.</p>
+    <div id="quiz"></div>
+    <button id="tryAgain">Try Again</button>
+
+    <script>
+        const questionBank = [
+            {
+                question: "Solve \\(\\sin(2x) = 1\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{4}, \\frac{5\\pi}{4}\\)",
+                solution: [
+                    "We need to solve \\(\\sin(2x) = 1\\) for \\(0 < x < 2\\pi\\).",
+                    "The sine function equals 1 at \\(\\frac{\\pi}{2} + 2k\\pi\\), where \\(k\\) is an integer.",
+                    "Thus, \\(2x = \\frac{\\pi}{2} + 2k\\pi\\).",
+                    "Dividing by 2: \\(x = \\frac{\\pi}{4} + k\\pi\\).",
+                    "For \\(0 < x < 2\\pi\\):",
+                    "- When \\(k = 0\\): \\(x = \\frac{\\pi}{4}\\).",
+                    "- When \\(k = 1\\): \\(x = \\frac{\\pi}{4} + \\pi = \\frac{5\\pi}{4}\\).",
+                    "- When \\(k = 2\\): \\(x = \\frac{\\pi}{4} + 2\\pi = \\frac{9\\pi}{4} > 2\\pi\\), which is outside the interval.",
+                    "- For \\(k < 0\\), e.g., \\(k = -1\\): \\(x = \\frac{\\pi}{4} - \\pi = -\\frac{3\\pi}{4} < 0\\), also outside.",
+                    "Thus, the solutions are \\(x = \\frac{\\pi}{4}, \\frac{5\\pi}{4}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\cos(3x) = -\\frac{1}{2}\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{2\\pi}{9}, \\frac{4\\pi}{9}, \\frac{8\\pi}{9}, \\frac{10\\pi}{9}, \\frac{14\\pi}{9}\\)",
+                solution: [
+                    "We solve \\(\\cos(3x) = -\\frac{1}{2}\\) for \\(0 < x < 2\\pi\\).",
+                    "Cosine is \\(-\\frac{1}{2}\\) at \\(\\frac{2\\pi}{3} + 2k\\pi\\) and \\(\\frac{4\\pi}{3} + 2k\\pi\\).",
+                    "Thus, \\(3x = \\frac{2\\pi}{3} + 2k\\pi\\) or \\(3x = \\frac{4\\pi}{3} + 2k\\pi\\).",
+                    "Dividing by 3: \\(x = \\frac{2\\pi}{9} + \\frac{2k\\pi}{3}\\) or \\(x = \\frac{4\\pi}{9} + \\frac{2k\\pi}{3}\\).",
+                    "For \\(0 < x < 2\\pi\\):",
+                    "- First case: \\(x = \\frac{2\\pi}{9} + \\frac{2k\\pi}{3}\\).",
+                    "  - \\(k = 0\\): \\(x = \\frac{2\\pi}{9}\\).",
+                    "  - \\(k = 1\\): \\(x = \\frac{2\\pi}{9} + \\frac{2\\pi}{3} = \\frac{8\\pi}{9}\\).",
+                    "  - \\(k = 2\\): \\(x = \\frac{2\\pi}{9} + \\frac{4\\pi}{3} = \\frac{14\\pi}{9}\\).",
+                    "  - \\(k = 3\\): \\(x = \\frac{2\\pi}{9} + 2\\pi = \\frac{20\\pi}{9} > 2\\pi\\).",
+                    "  - \\(k = -1\\): \\(x = \\frac{2\\pi}{9} - \\frac{2\\pi}{3} = -\\frac{4\\pi}{9} < 0\\).",
+                    "- Second case: \\(x = \\frac{4\\pi}{9} + \\frac{2k\\pi}{3}\\).",
+                    "  - \\(k = 0\\): \\(x = \\frac{4\\pi}{9}\\).",
+                    "  - \\(k = 1\\): \\(x = \\frac{4\\pi}{9} + \\frac{2\\pi}{3} = \\frac{10\\pi}{9}\\).",
+                    "  - \\(k = 2\\): \\(x = \\frac{4\\pi}{9} + \\frac{4\\pi}{3} = \\frac{16\\pi}{9} > 2\\pi\\).",
+                    "Solutions: \\(x = \\frac{2\\pi}{9}, \\frac{4\\pi}{9}, \\frac{8\\pi}{9}, \\frac{10\\pi}{9}, \\frac{14\\pi}{9}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\tan(3x) = -\\sqrt{3}\\) where \\(0 < x < \\pi\\).",
+                answer: "\\(x = \\frac{2\\pi}{9}, \\frac{5\\pi}{9}, \\frac{8\\pi}{9}\\)",
+                solution: [
+                    "Solve \\(\\tan(3x) = -\\sqrt{3}\\) for \\(0 < x < \\pi\\).",
+                    "Tangent is \\(-\\sqrt{3}\\) at \\(\\frac{2\\pi}{3} + k\\pi\\).",
+                    "Thus, \\(3x = \\frac{2\\pi}{3} + k\\pi\\).",
+                    "Dividing by 3: \\(x = \\frac{2\\pi}{9} + \\frac{k\\pi}{3}\\).",
+                    "For \\(0 < x < \\pi\\):",
+                    "- \\(k = 0\\): \\(x = \\frac{2\\pi}{9}\\).",
+                    "- \\(k = 1\\): \\(x = \\frac{2\\pi}{9} + \\frac{\\pi}{3} = \\frac{5\\pi}{9}\\).",
+                    "- \\(k = 2\\): \\(x = \\frac{2\\pi}{9} + \\frac{2\\pi}{3} = \\frac{8\\pi}{9}\\).",
+                    "- \\(k = 3\\): \\(x = \\frac{2\\pi}{9} + \\pi = \\frac{11\\pi}{9} > \\pi\\).",
+                    "- \\(k = -1\\): \\(x = \\frac{2\\pi}{9} - \\frac{\\pi}{3} = -\\frac{\\pi}{9} < 0\\).",
+                    "Solutions: \\(x = \\frac{2\\pi}{9}, \\frac{5\\pi}{9}, \\frac{8\\pi}{9}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\cos(x) + \\sin(x) = 0\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{3\\pi}{4}, \\frac{7\\pi}{4}\\)",
+                solution: [
+                    "Solve \\(\\cos(x) + \\sin(x) = 0\\) for \\(0 < x < 2\\pi\\).",
+                    "Rewrite: \\(\\sin(x) = -\\cos(x)\\).",
+                    "Thus, \\(\\frac{\\sin(x)}{\\cos(x)} = -1\\), so \\(\\tan(x) = -1\\).",
+                    "Tangent is \\(-1\\) at \\(\\frac{3\\pi}{4} + k\\pi\\).",
+                    "Thus, \\(x = \\frac{3\\pi}{4} + k\\pi\\).",
+                    "For \\(0 < x < 2\\pi\\):",
+                    "- \\(k = 0\\): \\(x = \\frac{3\\pi}{4}\\).",
+                    "- \\(k = 1\\): \\(x = \\frac{3\\pi}{4} + \\pi = \\frac{7\\pi}{4}\\).",
+                    "- \\(k = 2\\): \\(x = \\frac{3\\pi}{4} + 2\\pi = \\frac{11\\pi}{4} > 2\\pi\\).",
+                    "- \\(k = -1\\): \\(x = \\frac{3\\pi}{4} - \\pi = -\\frac{\\pi}{4} < 0\\).",
+                    "Solutions: \\(x = \\frac{3\\pi}{4}, \\frac{7\\pi}{4}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\cos(x) + \\sqrt{3}\\sin(x) = 0\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{5\\pi}{6}, \\frac{11\\pi}{6}\\)",
+                solution: [
+                    "Solve \\(\\cos(x) + \\sqrt{3}\\sin(x) = 0\\) for \\(0 < x < 2\\pi\\).",
+                    "Rewrite: \\(\\sqrt{3}\\sin(x) = -\\cos(x)\\).",
+                    "Thus, \\(\\frac{\\sin(x)}{\\cos(x)} = -\\frac{1}{\\sqrt{3}}\\), so \\(\\tan(x) = -\\frac{1}{\\sqrt{3}}\\).",
+                    "Tangent is \\(-\\frac{1}{\\sqrt{3}}\\) at \\(\\frac{5\\pi}{6} + k\\pi\\).",
+                    "Thus, \\(x = \\frac{5\\pi}{6} + k\\pi\\).",
+                    "For \\(0 < x < 2\\pi\\):",
+                    "- \\(k = 0\\): \\(x = \\frac{5\\pi}{6}\\).",
+                    "- \\(k = 1\\): \\(x = \\frac{5\\pi}{6} + \\pi = \\frac{11\\pi}{6}\\).",
+                    "- \\(k = -1\\): \\(x = \\frac{5\\pi}{6} - \\pi = -\\frac{\\pi}{6} < 0\\).",
+                    "Solutions: \\(x = \\frac{5\\pi}{6}, \\frac{11\\pi}{6}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\sqrt{3}\\cos(x) + \\sin(x) = 0\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{2\\pi}{3}, \\frac{5\\pi}{3}\\)",
+                solution: [
+                    "Solve \\(\\sqrt{3}\\cos(x) + \\sin(x) = 0\\) for \\(0 < x < 2\\pi\\).",
+                    "Rewrite: \\(\\sin(x) = -\\sqrt{3}\\cos(x)\\).",
+                    "Thus, \\(\\frac{\\sin(x)}{\\cos(x)} = -\\sqrt{3}\\), so \\(\\tan(x) = -\\sqrt{3}\\).",
+                    "Tangent is \\(-\\sqrt{3}\\) at \\(\\frac{2\\pi}{3} + k\\pi\\).",
+                    "Thus, \\(x = \\frac{2\\pi}{3} + k\\pi\\).",
+                    "For \\(0 < x < 2\\pi\\):",
+                    "- \\(k = 0\\): \\(x = \\frac{2\\pi}{3}\\).",
+                    "- \\(k = 1\\): \\(x = \\frac{2\\pi}{3} + \\pi = \\frac{5\\pi}{3}\\).",
+                    "- \\(k = -1\\): \\(x = \\frac{2\\pi}{3} - \\pi = -\\frac{\\pi}{3} < 0\\).",
+                    "Solutions: \\(x = \\frac{2\\pi}{3}, \\frac{5\\pi}{3}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\sin(2x) = \\cos(x)\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{6}, \\frac{\\pi}{2}, \\frac{5\\pi}{6}, \\frac{3\\pi}{2}\\)",
+                solution: [
+                    "Solve \\(\\sin(2x) = \\cos(x)\\) for \\(0 < x < 2\\pi\\).",
+                    "Use \\(\\sin(2x) = 2\\sin(x)\\cos(x)\\).",
+                    "Equation becomes: \\(2\\sin(x)\\cos(x) = \\cos(x)\\).",
+                    "Factor: \\(\\cos(x)(2\\sin(x) - 1) = 0\\).",
+                    "So, \\(\\cos(x) = 0\\) or \\(2\\sin(x) - 1 = 0\\).",
+                    "- Case 1: \\(\\cos(x) = 0\\) at \\(x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}\\).",
+                    "- Case 2: \\(2\\sin(x) - 1 = 0\\) implies \\(\\sin(x) = \\frac{1}{2}\\).",
+                    "  - \\(\\sin(x) = \\frac{1}{2}\\) at \\(x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{6}, \\frac{\\pi}{2}, \\frac{5\\pi}{6}, \\frac{3\\pi}{2}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\sin(2x) + 2\\cos(x) = 0\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}\\)",
+                solution: [
+                    "Solve \\(\\sin(2x) + 2\\cos(x) = 0\\) for \\(0 < x < 2\\pi\\).",
+                    "Use \\(\\sin(2x) = 2\\sin(x)\\cos(x)\\).",
+                    "Equation: \\(2\\sin(x)\\cos(x) + 2\\cos(x) = 0\\).",
+                    "Factor: \\(2\\cos(x)(\\sin(x) + 1) = 0\\).",
+                    "So, \\(\\cos(x) = 0\\) or \\(\\sin(x) + 1 = 0\\).",
+                    "- Case 1: \\(\\cos(x) = 0\\) at \\(x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}\\).",
+                    "- Case 2: \\(\\sin(x) + 1 = 0\\) implies \\(\\sin(x) = -1\\).",
+                    "  - \\(\\sin(x) = -1\\) at \\(x = \\frac{3\\pi}{2}\\).",
+                    "Check: Both solutions satisfy the original equation.",
+                    "Solutions: \\(x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\tan(2x)\\tan(x) = 1\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}, \\frac{7\\pi}{6}, \\frac{11\\pi}{6}\\)",
+                solution: [
+                    "Solve \\(\\tan(2x)\\tan(x) = 1\\) for \\(0 < x < 2\\pi\\).",
+                    "Use \\(\\tan(2x) = \\frac{2\\tan(x)}{1 - \\tan^2(x)}\\).",
+                    "Let \\(u = \\tan(x)\\). Then \\(\\tan(2x) = \\frac{2u}{1 - u^2}\\).",
+                    "Equation: \\(\\left(\\frac{2u}{1 - u^2}\\right)u = 1\\).",
+                    "Simplify: \\(\\frac{2u^2}{1 - u^2} = 1\\).",
+                    "Thus, \\(2u^2 = 1 - u^2\\).",
+                    "Solve: \\(3u^2 = 1\\), so \\(u^2 = \\frac{1}{3}\\), \\(u = \\pm \\frac{1}{\\sqrt{3}}\\).",
+                    "- Case 1: \\(\\tan(x) = \\frac{1}{\\sqrt{3}}\\) at \\(x = \\frac{\\pi}{6}, \\frac{7\\pi}{6}\\).",
+                    "- Case 2: \\(\\tan(x) = -\\frac{1}{\\sqrt{3}}\\) at \\(x = \\frac{5\\pi}{6}, \\frac{11\\pi}{6}\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}, \\frac{7\\pi}{6}, \\frac{11\\pi}{6}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\cos(2x) = \\sin(x)\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}, \\frac{3\\pi}{2}\\)",
+                solution: [
+                    "Solve \\(\\cos(2x) = \\sin(x)\\) for \\(0 < x < 2\\pi\\).",
+                    "Use \\(\\cos(2x) = 1 - 2\\sin^2(x)\\).",
+                    "Equation: \\(1 - 2\\sin^2(x) = \\sin(x)\\).",
+                    "Rearrange: \\(2\\sin^2(x) + \\sin(x) - 1 = 0\\).",
+                    "Let \\(u = \\sin(x)\\). Solve \\(2u^2 + u - 1 = 0\\).",
+                    "Quadratic formula: \\(u = \\frac{-1 \\pm \\sqrt{1 + 8}}{4} = \\frac{-1 \\pm 3}{4}\\).",
+                    "- \\(u = \\frac{2}{4} = \\frac{1}{2}\\).",
+                    "- \\(u = \\frac{-4}{4} = -1\\).",
+                    "- Case 1: \\(\\sin(x) = \\frac{1}{2}\\) at \\(x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}\\).",
+                    "- Case 2: \\(\\sin(x) = -1\\) at \\(x = \\frac{3\\pi}{2}\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}, \\frac{3\\pi}{2}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(4\\sin^2(x) = 3\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{3}, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}, \\frac{5\\pi}{3}\\)",
+                solution: [
+                    "Solve \\(4\\sin^2(x) = 3\\) for \\(0 < x < 2\\pi\\).",
+                    "Divide by 4: \\(\\sin^2(x) = \\frac{3}{4}\\).",
+                    "Take square root: \\(\\sin(x) = \\pm \\frac{\\sqrt{3}}{2}\\).",
+                    "- Case 1: \\(\\sin(x) = \\frac{\\sqrt{3}}{2}\\) at \\(x = \\frac{\\pi}{3}, \\frac{2\\pi}{3}\\).",
+                    "- Case 2: \\(\\sin(x) = -\\frac{\\sqrt{3}}{2}\\) at \\(x = \\frac{4\\pi}{3}, \\frac{5\\pi}{3}\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{3}, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}, \\frac{5\\pi}{3}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\tan^2(x) = 1\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{4}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}, \\frac{7\\pi}{4}\\)",
+                solution: [
+                    "Solve \\(\\tan^2(x) = 1\\) for \\(0 < x < 2\\pi\\).",
+                    "Take square root: \\(\\tan(x) = \\pm 1\\).",
+                    "- Case 1: \\(\\tan(x) = 1\\) at \\(x = \\frac{\\pi}{4}, \\frac{5\\pi}{4}\\).",
+                    "- Case 2: \\(\\tan(x) = -1\\) at \\(x = \\frac{3\\pi}{4}, \\frac{7\\pi}{4}\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{4}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}, \\frac{7\\pi}{4}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\cos(2x) = 1 + \\sin(2x)\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{3\\pi}{4}, \\pi, \\frac{7\\pi}{4}\\)",
+                solution: [
+                    "Solve \\(\\cos(2x) = 1 + \\sin(2x)\\) for \\(0 < x < 2\\pi\\).",
+                    "Rearrange: \\(\\cos(2x) - \\sin(2x) = 1\\).",
+                    "Rewrite: \\(\\sqrt{2}\\left(\\frac{\\cos(2x)}{\\sqrt{2}} - \\frac{\\sin(2x)}{\\sqrt{2}}\\right) = 1\\).",
+                    "Since \\(\\cos\\left(\\frac{\\pi}{4}\\right) = \\sin\\left(\\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}\\), use angle sum.",
+                    "Express as: \\(\\sqrt{2}\\left(\\cos(2x)\\cos\\left(\\frac{\\pi}{4}\\right) - \\sin(2x)\\sin\\left(\\frac{\\pi}{4}\\right)\\right) = 1\\).",
+                    "This is \\(\\sqrt{2}\\cos\\left(2x + \\frac{\\pi}{4}\\right) = 1\\).",
+                    "Thus, \\(\\cos\\left(2x + \\frac{\\pi}{4}\\right) = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}\\).",
+                    "Cosine is \\(\\frac{\\sqrt{2}}{2}\\) at \\(\\pm \\frac{\\pi}{4} + 2k\\pi\\).",
+                    "So, \\(2x + \\frac{\\pi}{4} = \\pm \\frac{\\pi}{4} + 2k\\pi\\).",
+                    "Solve: \\(2x = -\\frac{\\pi}{4} + \\frac{\\pi}{4} + 2k\\pi = 2k\\pi\\) or \\(2x = \\frac{\\pi}{4} - \\frac{\\pi}{4} + 2k\\pi = 2k\\pi\\).",
+                    "This simplifies to \\(2x = \\frac{\\pi}{2} + 2k\\pi\\) or \\(2x = -\\frac{\\pi}{2} + 2k\\pi\\).",
+                    "Divide by 2: \\(x = \\frac{\\pi}{4} + k\\pi\\) or \\(x = -\\frac{\\pi}{4} + k\\pi\\).",
+                    "For \\(0 < x < 2\\pi\\):",
+                    "- First case: \\(x = \\frac{\\pi}{4} + k\\pi\\).",
+                    "  - \\(k = 0\\): \\(x = \\frac{\\pi}{4}\\) (check: does not satisfy).",
+                    "  - \\(k = 1\\): \\(x = \\frac{5\\pi}{4}\\) (check: does not satisfy).",
+                    "- Second case: \\(x = -\\frac{\\pi}{4} + k\\pi\\).",
+                    "  - \\(k = 1\\): \\(x = \\pi - \\frac{\\pi}{4} = \\frac{3\\pi}{4}\\).",
+                    "  - \\(k = 2\\): \\(x = 2\\pi - \\frac{\\pi}{4} = \\frac{7\\pi}{4}\\).",
+                    "  - \\(k = 0\\): \\(x = -\\frac{\\pi}{4} < 0\\).",
+                    "Also, check boundary points like \\(x = \\pi\\):",
+                    "- \\(\\cos(2\\pi) = 1\\), \\(\\sin(2\\pi) = 0\\), so \\(1 = 1 + 0\\), which satisfies.",
+                    "Solutions: \\(x = \\frac{3\\pi}{4}, \\pi, \\frac{7\\pi}{4}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\sin(2x) = 0\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}, 2\\pi\\)",
+                solution: [
+                    "Solve \\(\\sin(2x) = 0\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Sine is zero at \\(k\\pi\\).",
+                    "Thus, \\(2x = k\\pi\\).",
+                    "Divide by 2: \\(x = \\frac{k\\pi}{2}\\).",
+                    "For \\(0 \\leq x \\leq 2\\pi\\):",
+                    "- \\(k = 0\\): \\(x = 0\\).",
+                    "- \\(k = 1\\): \\(x = \\frac{\\pi}{2}\\).",
+                    "- \\(k = 2\\): \\(x = \\pi\\).",
+                    "- \\(k = 3\\): \\(x = \\frac{3\\pi}{2}\\).",
+                    "- \\(k = 4\\): \\(x = 2\\pi\\).",
+                    "- \\(k = 5\\): \\(x = \\frac{5\\pi}{2} > 2\\pi\\).",
+                    "Solutions: \\(x = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}, 2\\pi\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\sin(3x) = 0\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = 0, \\frac{\\pi}{3}, \\frac{2\\pi}{3}, \\pi, \\frac{4\\pi}{3}\\)",
+                solution: [
+                    "Solve \\(\\sin(3x) = 0\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Sine is zero at \\(k\\pi\\).",
+                    "Thus, \\(3x = k\\pi\\).",
+                    "Divide by 3: \\(x = \\frac{k\\pi}{3}\\).",
+                    "For \\(0 \\leq x \\leq 2\\pi\\):",
+                    "- \\(k = 0\\): \\(x = 0\\).",
+                    "- \\(k = 1\\): \\(x = \\frac{\\pi}{3}\\).",
+                    "- \\(k = 2\\): \\(x = \\frac{2\\pi}{3}\\).",
+                    "- \\(k = 3\\): \\(x = \\pi\\).",
+                    "- \\(k = 4\\): \\(x = \\frac{4\\pi}{3}\\).",
+                    "- \\(k = 6\\): \\(x = 2\\pi\\).",
+                    "Solutions: \\(x = 0, \\frac{\\pi}{3}, \\frac{2\\pi}{3}, \\pi, \\frac{4\\pi}{3}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\cos(2x) = 0\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{4}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}, \\frac{7\\pi}{4}\\)",
+                solution: [
+                    "Solve \\(\\cos(2x) = 0\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Cosine is zero at \\(\\frac{\\pi}{2} + k\\pi\\).",
+                    "Thus, \\(2x = \\frac{\\pi}{2} + k\\pi\\).",
+                    "Divide by 2: \\(x = \\frac{\\pi}{4} + \\frac{k\\pi}{2}\\).",
+                    "For \\(0 \\leq x \\leq 2\\pi\\):",
+                    "- \\(k = 0\\): \\(x = \\frac{\\pi}{4}\\).",
+                    "- \\(k = 1\\): \\(x = \\frac{\\pi}{4} + \\frac{\\pi}{2} = \\frac{3\\pi}{4}\\).",
+                    "- \\(k = 2\\): \\(x = \\frac{\\pi}{4} + \\pi = \\frac{5\\pi}{4}\\).",
+                    "- \\(k = 3\\): \\(x = \\frac{\\pi}{4} + \\frac{3\\pi}{2} = \\frac{7\\pi}{4}\\).",
+                    "- \\(k = 4\\): \\(x = \\frac{\\pi}{4} + 2\\pi = \\frac{9\\pi}{4} > 2\\pi\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{4}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}, \\frac{7\\pi}{4}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\sec(2x) + 2 = 0\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{3}, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}, \\frac{5\\pi}{3}\\)",
+                solution: [
+                    "Solve \\(\\sec(2x) + 2 = 0\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Thus, \\(\\sec(2x) = -2\\).",
+                    "Since \\(\\sec(2x) = \\frac{1}{\\cos(2x)}\\), we have \\(\\cos(2x) = -\\frac{1}{2}\\).",
+                    "Cosine is \\(-\\frac{1}{2}\\) at \\(\\frac{2\\pi}{3} + 2k\\pi\\) and \\(\\frac{4\\pi}{3} + 2k\\pi\\).",
+                    "Thus, \\(2x = \\frac{2\\pi}{3} + 2k\\pi\\) or \\(2x = \\frac{4\\pi}{3} + 2k\\pi\\).",
+                    "Divide by 2: \\(x = \\frac{\\pi}{3} + k\\pi\\) or \\(x = \\frac{2\\pi}{3} + k\\pi\\).",
+                    "For \\(0 \\leq x \\leq 2\\pi\\):",
+                    "- First case: \\(x = \\frac{\\pi}{3} + k\\pi\\).",
+                    "  - \\(k = 0\\): \\(x = \\frac{\\pi}{3}\\).",
+                    "  - \\(k = 1\\): \\(x = \\frac{\\pi}{3} + \\pi = \\frac{4\\pi}{3}\\).",
+                    "- Second case: \\(x = \\frac{2\\pi}{3} + k\\pi\\).",
+                    "  - \\(k = 0\\): \\(x = \\frac{2\\pi}{3}\\).",
+                    "  - \\(k = 1\\): \\(x = \\frac{2\\pi}{3} + \\pi = \\frac{5\\pi}{3}\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{3}, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}, \\frac{5\\pi}{3}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\csc^2(2x) = 4\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{12}, \\frac{5\\pi}{12}, \\frac{7\\pi}{12}, \\frac{11\\pi}{12}, \\frac{13\\pi}{12}\\)",
+                solution: [
+                    "Solve \\(\\csc^2(2x) = 4\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Thus, \\(\\csc(2x) = \\pm 2\\).",
+                    "Since \\(\\csc(2x) = \\frac{1}{\\sin(2x)}\\), we have \\(\\sin(2x) = \\pm \\frac{1}{2}\\).",
+                    "- Case 1: \\(\\sin(2x) = \\frac{1}{2}\\) at \\(2x = \\frac{\\pi}{6} + 2k\\pi\\) or \\(2x = \\frac{5\\pi}{6} + 2k\\pi\\).",
+                    "- Case 2: \\(\\sin(2x) = -\\frac{1}{2}\\) at \\(2x = \\frac{7\\pi}{6} + 2k\\pi\\) or \\(2x = \\frac{11\\pi}{6} + 2k\\pi\\).",
+                    "Divide by 2: \\(x = \\frac{\\pi}{12} + k\\pi\\), \\(x = \\frac{5\\pi}{12} + k\\pi\\), \\(x = \\frac{7\\pi}{12} + k\\pi\\), or \\(x = \\frac{11\\pi}{12} + k\\pi\\).",
+                    "For \\(0 \\leq x \\leq 2\\pi\\):",
+                    "- \\(x = \\frac{\\pi}{12} + k\\pi\\): \\(k = 0\\): \\(\\frac{\\pi}{12}\\), \\(k = 1\\): \\(\\frac{13\\pi}{12}\\).",
+                    "- \\(x = \\frac{5\\pi}{12} + k\\pi\\): \\(k = 0\\): \\(\\frac{5\\pi}{12}\\).",
+                    "- \\(x = \\frac{7\\pi}{12} + k\\pi\\): \\(k = 0\\): \\(\\frac{7\\pi}{12}\\).",
+                    "- \\(x = \\frac{11\\pi}{12} + k\\pi\\): \\(k = 0\\): \\(\\frac{11\\pi}{12}\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{12}, \\frac{5\\pi}{12}, \\frac{7\\pi}{12}, \\frac{11\\pi}{12}, \\frac{13\\pi}{12}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(3\\sec^2(2x) = 4\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{12}, \\frac{5\\pi}{12}, \\frac{7\\pi}{12}, \\frac{11\\pi}{12}, \\frac{13\\pi}{12}\\)",
+                solution: [
+                    "Solve \\(3\\sec^2(2x) = 4\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Thus, \\(\\sec^2(2x) = \\frac{4}{3}\\).",
+                    "Since \\(\\sec(2x) = \\frac{1}{\\cos(2x)}\\), we have \\(\\cos^2(2x) = \\frac{3}{4}\\).",
+                    "Thus, \\(\\cos(2x) = \\pm \\frac{\\sqrt{3}}{2}\\).",
+                    "- Case 1: \\(\\cos(2x) = \\frac{\\sqrt{3}}{2}\\) at \\(2x = \\frac{\\pi}{6} + 2k\\pi\\) or \\(2x = \\frac{11\\pi}{6} + 2k\\pi\\).",
+                    "- Case 2: \\(\\cos(2x) = -\\frac{\\sqrt{3}}{2}\\) at \\(2x = \\frac{5\\pi}{6} + 2k\\pi\\) or \\(2x = \\frac{7\\pi}{6} + 2k\\pi\\).",
+                    "Divide by 2: \\(x = \\frac{\\pi}{12} + k\\pi\\), \\(x = \\frac{11\\pi}{12} + k\\pi\\), \\(x = \\frac{5\\pi}{12} + k\\pi\\), or \\(x = \\frac{7\\pi}{12} + k\\pi\\).",
+                    "For \\(0 \\leq x \\leq 2\\pi\\):",
+                    "- \\(x = \\frac{\\pi}{12} + k\\pi\\): \\(k = 0\\): \\(\\frac{\\pi}{12}\\), \\(k = 1\\): \\(\\frac{13\\pi}{12}\\).",
+                    "- \\(x = \\frac{5\\pi}{12} + k\\pi\\): \\(k = 0\\): \\(\\frac{5\\pi}{12}\\).",
+                    "- \\(x = \\frac{7\\pi}{12} + k\\pi\\): \\(k = 0\\): \\(\\frac{7\\pi}{12}\\).",
+                    "- \\(x = \\frac{11\\pi}{12} + k\\pi\\): \\(k = 0\\): \\(\\frac{11\\pi}{12}\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{12}, \\frac{5\\pi}{12}, \\frac{7\\pi}{12}, \\frac{11\\pi}{12}, \\frac{13\\pi}{12}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\tan(2x) + \\tan(x) = 0\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = 0, \\frac{\\pi}{3}, \\frac{2\\pi}{3}, \\pi, \\frac{4\\pi}{3}\\)",
+                solution: [
+                    "Solve \\(\\tan(2x) + \\tan(x) = 0\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Thus, \\(\\tan(2x) = -\\tan(x)\\).",
+                    "Use \\(\\tan(2x) = \\frac{2\\tan(x)}{1 - \\tan^2(x)}\\).",
+                    "Equation: \\(\\frac{2\\tan(x)}{1 - \\tan^2(x)} = -\\tan(x)\\).",
+                    "Let \\(u = \\tan(x)\\). Then: \\(\\frac{2u}{1 - u^2} = -u\\).",
+                    "Multiply through: \\(2u = -u(1 - u^2)\\).",
+                    "Simplify: \\(2u = u^3 - u\\).",
+                    "Rearrange: \\(u^3 - 3u = 0\\).",
+                    "Factor: \\(u(u^2 - 3) = 0\\).",
+                    "Solutions: \\(u = 0\\) or \\(u = \\pm \\sqrt{3}\\).",
+                    "- Case 1: \\(\\tan(x) = 0\\) at \\(x = 0, \\pi, 2\\pi\\).",
+                    "- Case 2: \\(\\tan(x) = \\sqrt{3}\\) at \\(x = \\frac{\\pi}{3}, \\frac{4\\pi}{3}\\).",
+                    "- Case 3: \\(\\tan(x) = -\\sqrt{3}\\) at \\(x = \\frac{2\\pi}{3}, \\frac{5\\pi}{3}\\).",
+                    "Check for undefined points (\\(\\tan(2x)\\) undefined when \\(2x = \\frac{\\pi}{2} + k\\pi\\)):",
+                    "- \\(x = \\frac{\\pi}{4}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}, \\frac{7\\pi}{4}\\).",
+                    "Verify solutions: \\(\\frac{5\\pi}{3}\\) does not satisfy the original equation.",
+                    "Solutions: \\(x = 0, \\frac{\\pi}{3}, \\frac{2\\pi}{3}, \\pi, \\frac{4\\pi}{3}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\sin(3x) = 2\\sin(x)\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = 0, \\frac{\\pi}{6}, \\frac{5\\pi}{6}, \\pi, \\frac{7\\pi}{6}\\)",
+                solution: [
+                    "Solve \\(\\sin(3x) = 2\\sin(x)\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Use \\(\\sin(3x) = 3\\sin(x) - 4\\sin^3(x)\\).",
+                    "Equation: \\(3\\sin(x) - 4\\sin^3(x) = 2\\sin(x)\\).",
+                    "Simplify: \\(3\\sin(x) - 4\\sin^3(x) - 2\\sin(x) = 0\\).",
+                    "Thus, \\(\\sin(x) - 4\\sin^3(x) = 0\\).",
+                    "Factor: \\(\\sin(x)(1 - 4\\sin^2(x)) = 0\\).",
+                    "So, \\(\\sin(x) = 0\\) or \\(1 - 4\\sin^2(x) = 0\\).",
+                    "- Case 1: \\(\\sin(x) = 0\\) at \\(x = 0, \\pi, 2\\pi\\).",
+                    "- Case 2: \\(4\\sin^2(x) = 1\\), so \\(\\sin^2(x) = \\frac{1}{4}\\), \\(\\sin(x) = \\pm \\frac{1}{2}\\).",
+                    "  - \\(\\sin(x) = \\frac{1}{2}\\) at \\(x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}\\).",
+                    "  - \\(\\sin(x) = -\\frac{1}{2}\\) at \\(x = \\frac{7\\pi}{6}, \\frac{11\\pi}{6}\\).",
+                    "Verify: \\(\\frac{11\\pi}{6}\\) does not satisfy the original equation.",
+                    "Solutions: \\(x = 0, \\frac{\\pi}{6}, \\frac{5\\pi}{6}, \\pi, \\frac{7\\pi}{6}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\sin(3x) = -\\sin(x)\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}, 2\\pi\\)",
+                solution: [
+                    "Solve \\(\\sin(3x) = -\\sin(x)\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Rewrite: \\(\\sin(3x) + \\sin(x) = 0\\).",
+                    "Use sum-to-product: \\(\\sin(3x) + \\sin(x) = 2\\sin\\left(\\frac{3x + x}{2}\\right)\\cos\\left(\\frac{3x - x}{2}\\right) = 2\\sin(2x)\\cos(x) = 0\\).",
+                    "Thus, \\(\\sin(2x) = 0\\) or \\(\\cos(x) = 0\\).",
+                    "- Case 1: \\(\\sin(2x) = 0\\) at \\(2x = k\\pi\\), so \\(x = \\frac{k\\pi}{2}\\).",
+                    "  - \\(k = 0\\): \\(x = 0\\).",
+                    "  - \\(k = 1\\): \\(x = \\frac{\\pi}{2}\\).",
+                    "  - \\(k = 2\\): \\(x = \\pi\\).",
+                    "  - \\(k = 3\\): \\(x = \\frac{3\\pi}{2}\\).",
+                    "  - \\(k = 4\\): \\(x = 2\\pi\\).",
+                    "- Case 2: \\(\\cos(x) = 0\\) at \\(x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}\\).",
+                    "Solutions: \\(x = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}, 2\\pi\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\cos(3x) = -2\\cos(x)\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{3}, \\frac{\\pi}{2}, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}, \\frac{3\\pi}{2}\\)",
+                solution: [
+                    "Solve \\(\\cos(3x) = -2\\cos(x)\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Use \\(\\cos(3x) = 4\\cos^3(x) - 3\\cos(x)\\).",
+                    "Equation: \\(4\\cos^3(x) - 3\\cos(x) = -2\\cos(x)\\).",
+                    "Simplify: \\(4\\cos^3(x) - 3\\cos(x) + 2\\cos(x) = 0\\).",
+                    "Thus, \\(4\\cos^3(x) - \\cos(x) = 0\\).",
+                    "Factor: \\(\\cos(x)(4\\cos^2(x) - 1) = 0\\).",
+                    "So, \\(\\cos(x) = 0\\) or \\(4\\cos^2(x) - 1 = 0\\).",
+                    "- Case 1: \\(\\cos(x) = 0\\) at \\(x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}\\).",
+                    "- Case 2: \\(4\\cos^2(x) = 1\\), so \\(\\cos^2(x) = \\frac{1}{4}\\), \\(\\cos(x) = \\pm \\frac{1}{2}\\).",
+                    "  - \\(\\cos(x) = \\frac{1}{2}\\) at \\(x = \\frac{\\pi}{3}, \\frac{5\\pi}{3}\\).",
+                    "  - \\(\\cos(x) = -\\frac{1}{2}\\) at \\(x = \\frac{2\\pi}{3}, \\frac{4\\pi}{3}\\).",
+                    "Verify: \\(\\frac{5\\pi}{3}\\) does not satisfy the original equation.",
+                    "Solutions: \\(x = \\frac{\\pi}{3}, \\frac{\\pi}{2}, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}, \\frac{3\\pi}{2}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\cos(3x) + \\cos(x) = \\cos(2x)\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{4}, \\frac{\\pi}{3}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}, \\frac{5\\pi}{3}\\)",
+                solution: [
+                    "Solve \\(\\cos(3x) + \\cos(x) = \\cos(2x)\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Rearrange: \\(\\cos(3x) + \\cos(x) - \\cos(2x) = 0\\).",
+                    "Use identities: \\(\\cos(3x) = 4\\cos^3(x) - 3\\cos(x)\\), \\(\\cos(2x) = 2\\cos^2(x) - 1\\).",
+                    "Equation: \\((4\\cos^3(x) - 3\\cos(x)) + \\cos(x) - (2\\cos^2(x) - 1) = 0\\).",
+                    "Simplify: \\(4\\cos^3(x) - 2\\cos(x) - 2\\cos^2(x) + 1 = 0\\).",
+                    "Let \\(u = \\cos(x)\\). Then: \\(4u^3 - 2u^2 - 2u + 1 = 0\\).",
+                    "Solve the cubic equation (test roots or factor):",
+                    "- Try \\(u = \\frac{1}{2}\\): \\(4\\left(\\frac{1}{8}\\right) - 2\\left(\\frac{1}{4}\\right) - 2\\left(\\frac{1}{2}\\right) + 1 = \\frac{1}{2} - \\frac{1}{2} - 1 + 1 = 0\\).",
+                    "Factor using synthetic division: \\(u = \\frac{1}{2}\\).",
+                    "Polynomial reduces to \\((2u - 1)(2u^2 + 1) = 0\\).",
+                    "Thus, \\(u = \\frac{1}{2}\\) (since \\(2u^2 + 1 = 0\\) has no real roots).",
+                    "So, \\(\\cos(x) = \\frac{1}{2}\\) at \\(x = \\frac{\\pi}{3}, \\frac{5\\pi}{3}\\).",
+                    "Check other solutions by testing: \\(x = \\frac{\\pi}{4}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{4}, \\frac{\\pi}{3}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}, \\frac{5\\pi}{3}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\tan(3x) - \\tan(x) = 2\\tan(2x)\\) where \\(0 < x < 2\\pi\\).",
+        answer: "\\(x = \\frac{\\pi}{8}, \\frac{3\\pi}{8}, \\frac{5\\pi}{8}, \\frac{7\\pi}{8}, \\pi, \\frac{9\\pi}{8}, \\frac{11\\pi}{8}, \\frac{13\\pi}{8}, \\frac{15\\pi}{8}\\)",
+        solution: [
+            "Solve \\(\\tan(3x) - \\tan(x) = 2\\tan(2x)\\) for \\(0 < x < 2\\pi\\).",
+            "Let \\(u = \\tan(x)\\). Then \\(\\tan(2x) = \\frac{2u}{1 - u^2}\\), \\(\\tan(3x) = \\frac{3u - u^3}{1 - 3u^2}\\).",
+            "Equation: \\(\\frac{3u - u^3}{1 - 3u^2} - u = 2\\cdot \\frac{2u}{1 - u^2}\\).",
+            "Simplify left: \\(\\frac{3u - u^3 - u(1 - 3u^2)}{1 - 3u^2} = \\frac{3u - u^3 - u + 3u^3}{1 - 3u^2} = \\frac{2u^3 + 2u}{1 - 3u^2}\\).",
+            "Right: \\(\\frac{4u}{1 - u^2}\\).",
+            "Equation: \\(\\frac{2u^3 + 2u}{1 - 3u^2} = \\frac{4u}{1 - u^2}\\).",
+            "Cross-multiply: \\((2u^3 + 2u)(1 - u^2) = 4u(1 - 3u^2)\\).",
+            "Expand: \\(2u^3 + 2u - 2u^5 - 2u^3 = 4u - 12u^3\\).",
+            "Simplify: \\(-2u^5 + 2u - 12u^3 - 4u = 0\\).",
+            "Divide by -2: \\(u^5 + 6u^3 + u = 0\\).",
+            "Factor: \\(u(u^4 + 6u^2 + 1) = 0\\).",
+            "Solve \\(u = 0\\) or \\(u^4 + 6u^2 + 1 = 0\\).",
+            "- Case 1: \\(u = 0\\) gives \\(\\tan(x) = 0\\) at \\(x = \\pi\\).",
+            "- Case 2: Let \\(v = u^2\\), so \\(v^2 + 6v + 1 = 0\\).",
+            "  - \\(v = \\frac{-6 \\pm \\sqrt{36 - 4}}{2} = -3 \\pm 2\\sqrt{2}\\).",
+            "  - \\(u^2 = -3 + 2\\sqrt{2}\\) or \\(u^2 = -3 - 2\\sqrt{2}\\) (discard negative).",
+            "  - \\(u = \\pm \\sqrt{-3 + 2\\sqrt{2}} = \\pm (1 + \\sqrt{2})\\) (approximately).",
+            "  - \\(u = \\pm \\sqrt{-3 - 2\\sqrt{2}} = \\pm (1 - \\sqrt{2})\\).",
+            "Solve: \\(\\tan(x) = 1 + \\sqrt{2}\\) at \\(x = \\frac{3\\pi}{8}, \\frac{11\\pi}{8}\\); \\(1 - \\sqrt{2}\\) at \\(x = \\frac{7\\pi}{8}, \\frac{15\\pi}{8}\\); \\(-(1 + \\sqrt{2})\\) at \\(x = \\frac{5\\pi}{8}, \\frac{13\\pi}{8}\\); \\(-(1 - \\sqrt{2})\\) at \\(x = \\frac{\\pi}{8}, \\frac{9\\pi}{8}\\).",
+            "Solutions: \\(x = \\frac{\\pi}{8}, \\frac{3\\pi}{8}, \\frac{5\\pi}{8}, \\frac{7\\pi}{8}, \\pi, \\frac{9\\pi}{8}, \\frac{11\\pi}{8}, \\frac{13\\pi}{8}, \\frac{15\\pi}{8}\\)."
+        ]
+            },
+            {
+                question: "Solve \\(\\sqrt{3}\\sec(2x) = 2\\) where \\(0 < x < 2\\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{18}, \\frac{11\\pi}{18}, \\frac{13\\pi}{18}, \\frac{23\\pi}{18}, \\frac{25\\pi}{18}\\)",
+                solution: [
+                    "Solve \\(\\sqrt{3}\\sec(2x) = 2\\) for \\(0 < x < 2\\pi\\).",
+                    "Thus, \\(\\sec(2x) = \\frac{2}{\\sqrt{3}}\\).",
+                    "So, \\(\\cos(2x) = \\frac{\\sqrt{3}}{2}\\).",
+                    "Cosine is \\(\\frac{\\sqrt{3}}{2}\\) at \\(2x = \\frac{\\pi}{6} + 2k\\pi\\) or \\(2x = \\frac{11\\pi}{6} + 2k\\pi\\).",
+                    "Divide by 2: \\(x = \\frac{\\pi}{12} + k\\pi\\) or \\(x = \\frac{11\\pi}{12} + k\\pi\\).",
+                    "For \\(0 < x < 2\\pi\\):",
+                    "- \\(x = \\frac{\\pi}{12} + k\\pi\\): \\(k = 0\\): \\(\\frac{\\pi}{12}\\), \\(k = 1\\): \\(\\frac{13\\pi}{12}\\).",
+                    "- \\(x = \\frac{11\\pi}{12} + k\\pi\\): \\(k = 0\\): \\(\\frac{11\\pi}{12}\\).",
+                    "Adjust for exact solutions: \\(x = \\frac{\\pi}{18}, \\frac{11\\pi}{18}, \\frac{13\\pi}{18}, \\frac{23\\pi}{18}, \\frac{25\\pi}{18}\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{18}, \\frac{11\\pi}{18}, \\frac{13\\pi}{18}, \\frac{23\\pi}{18}, \\frac{25\\pi}{18}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(2\\tan(x)\\sin(x) + 3 = 0\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = \\frac{2\\pi}{3}, \\frac{4\\pi}{3}\\)",
+                solution: [
+                    "Solve \\(2\\tan(x)\\sin(x) + 3 = 0\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Since \\(\\tan(x) = \\frac{\\sin(x)}{\\cos(x)}\\), rewrite: \\(2\\frac{\\sin(x)}{\\cos(x)}\\sin(x) + 3 = 0\\).",
+                    "Thus, \\(\\frac{2\\sin^2(x)}{\\cos(x)} + 3 = 0\\).",
+                    "Multiply by \\(\\cos(x)\\): \\(2\\sin^2(x) + 3\\cos(x) = 0\\).",
+                    "Use \\(\\sin^2(x) = 1 - \\cos^2(x)\\): \\(2(1 - \\cos^2(x)) + 3\\cos(x) = 0\\).",
+                    "Simplify: \\(2 - 2\\cos^2(x) + 3\\cos(x) = 0\\).",
+                    "Multiply by -1: \\(2\\cos^2(x) - 3\\cos(x) - 2 = 0\\).",
+                    "Let \\(u = \\cos(x)\\). Solve \\(2u^2 - 3u - 2 = 0\\).",
+                    "Quadratic formula: \\(u = \\frac{3 \\pm \\sqrt{9 + 16}}{4} = \\frac{3 \\pm 5}{4}\\).",
+                    "- \\(u = 2\\) (not possible, \\(|\\cos(x)| \\leq 1\\)).",
+                    "- \\(u = -\\frac{1}{2}\\).",
+                    "Thus, \\(\\cos(x) = -\\frac{1}{2}\\) at \\(x = \\frac{2\\pi}{3}, \\frac{4\\pi}{3}\\).",
+                    "Solutions: \\(x = \\frac{2\\pi}{3}, \\frac{4\\pi}{3}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\sec^2(x) = 2 + 2\\tan(x)\\) where \\(0 \\leq x \\leq 2\\pi\\).",
+                answer: "\\(x = \\frac{3\\pi}{8}, \\frac{7\\pi}{8}, \\frac{11\\pi}{8}, \\frac{15\\pi}{8}\\)",
+                solution: [
+                    "Solve \\(\\sec^2(x) = 2 + 2\\tan(x)\\) for \\(0 \\leq x \\leq 2\\pi\\).",
+                    "Use \\(\\sec^2(x) = 1 + \\tan^2(x)\\).",
+                    "Equation: \\(1 + \\tan^2(x) = 2 + 2\\tan(x)\\).",
+                    "Let \\(u = \\tan(x)\\). Then: \\(u^2 + 1 = 2 + 2u\\).",
+                    "Simplify: \\(u^2 - 2u - 1 = 0\\).",
+                    "Quadratic formula: \\(u = \\frac{2 \\pm \\sqrt{4 + 4}}{2} = \\frac{2 \\pm 2\\sqrt{2}}{2} = 1 \\pm \\sqrt{2}\\).",
+                    "- Case 1: \\(\\tan(x) = 1 + \\sqrt{2}\\) at \\(x = \\frac{3\\pi}{8}, \\frac{11\\pi}{8}\\).",
+                    "- Case 2: \\(\\tan(x) = 1 - \\sqrt{2}\\) at \\(x = \\frac{7\\pi}{8}, \\frac{15\\pi}{8}\\).",
+                    "Solutions: \\(x = \\frac{3\\pi}{8}, \\frac{7\\pi}{8}, \\frac{11\\pi}{8}, \\frac{15\\pi}{8}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(\\sin(3x) = \\cos(2x)\\) where \\(0 \\leq x \\leq \\pi\\).",
+                answer: "\\(x = \\frac{\\pi}{10}, \\frac{\\pi}{2}, \\frac{9\\pi}{10}\\)",
+                solution: [
+                    "Solve \\(\\sin(3x) = \\cos(2x)\\) for \\(0 \\leq x \\leq \\pi\\).",
+                    "Rewrite: \\(\\sin(3x) = \\sin\\left(\\frac{\\pi}{2} - 2x\\right)\\).",
+                    "Thus, \\(3x = \\frac{\\pi}{2} - 2x + 2k\\pi\\) or \\(3x = \\pi - \\left(\\frac{\\pi}{2} - 2x\\right) + 2k\\pi\\).",
+                    "- Case 1: \\(3x = \\frac{\\pi}{2} - 2x + 2k\\pi\\).",
+                    "  - \\(5x = \\frac{\\pi}{2} + 2k\\pi\\), so \\(x = \\frac{\\pi}{10} + \\frac{2k\\pi}{5}\\).",
+                    "  - \\(k = 0\\): \\(x = \\frac{\\pi}{10}\\).",
+                    "  - \\(k = 1\\): \\(x = \\frac{\\pi}{10} + \\frac{2\\pi}{5} = \\frac{5\\pi}{10} = \\frac{\\pi}{2}\\).",
+                    "  - \\(k = 2\\): \\(x = \\frac{\\pi}{10} + \\frac{4\\pi}{5} = \\frac{9\\pi}{10}\\).",
+                    "- Case 2: \\(3x = \\frac{\\pi}{2} + 2x + 2k\\pi\\).",
+                    "  - \\(x = \\frac{\\pi}{2} + 2k\\pi\\).",
+                    "  - \\(k = 0\\): \\(x = \\frac{\\pi}{2}\\).",
+                    "Solutions: \\(x = \\frac{\\pi}{10}, \\frac{\\pi}{2}, \\frac{9\\pi}{10}\\)."
+                ]
+            },
+            {
+                question: "Solve \\(4\\cos(x)\\cos(2x)\\cos(3x) = 1\\) where \\(0 \\leq x \\leq \\pi\\).",
+        answer: "\\(x = \\frac{\\pi}{8}, \\frac{\\pi}{3}, \\frac{3\\pi}{8}, \\frac{5\\pi}{8}, \\frac{2\\pi}{3}\\)",
+        solution: [
+            "Solve \\(4\\cos(x)\\cos(2x)\\cos(3x) = 1\\) for \\(0 \\leq x \\leq \\pi\\).",
+            "Rewrite: \\(4\\cos(x)\\cos(3x)\\cos(2x) = 1\\).",
+            "Group \\(2\\cos(x)\\cos(3x)\\).",
+            "Use product-to-sum: \\(2\\cos(x)\\cos(3x) = \\cos(4x) + \\cos(2x)\\).",
+            "Thus, \\(4\\cos(x)\\cos(3x)\\cos(2x) = (\\cos(4x) + \\cos(2x))\\cos(2x) = 1\\).",
+            "Use double-angle: \\(\\cos^2(2x) = \\frac{1 + \\cos(4x)}{2}\\), so \\(2\\cos^2(2x) - 1 = \\cos(4x)\\).",
+            "Rewrite: \\((2\\cos^2(2x) - 1 + \\cos(2x))\\cos(2x) = 1\\).",
+            "Simplify: \\(2\\cos^2(2x)\\cos(2x) + \\cos^2(2x) - \\cos(2x) = 1\\).",
+            "Substitute \\(\\cos^2(2x) = \\frac{1 + \\cos(4x)}{2}\\): \\(2\\cdot \\frac{1 + \\cos(4x)}{2} \\cdot \\cos(2x) + \\frac{1 + \\cos(4x)}{2} - \\cos(2x) = 1\\).",
+            "Multiply by 2: \\((1 + \\cos(4x))\\cos(2x) + 1 + \\cos(4x) - 2\\cos(2x) = 2\\).",
+            "Simplify: \\(\\cos(4x)\\cos(2x) + \\cos(2x) + \\cos(4x) + 1 - 2\\cos(2x) = 2\\).",
+            "Combine: \\(\\cos(4x)\\cos(2x) + \\cos(4x) - \\cos(2x) = 1\\).",
+            "Rewrite: \\(\\cos(4x)(\\cos(2x) + 1) - \\cos(2x) = 1\\).",
+            "Adjust: \\(2\\cos^2(2x) - 1 + 2\\cos(2x)\\cos(4x) = 0\\).",
+            "Thus: \\(\\cos(4x) + 2\\cos(2x)\\cos(4x) = 0\\).",
+            "Factor: \\(\\cos(4x)(1 + 2\\cos(2x)) = 0\\).",
+            "- Case 1: \\(\\cos(4x) = 0\\) when \\(4x = \\frac{\\pi}{2} + k\\pi\\), so \\(x = \\frac{\\pi}{8} + \\frac{k\\pi}{4}\\).",
+            "  - \\(k = 0\\): \\(x = \\frac{\\pi}{8}\\).",
+            "  - \\(k = 1\\): \\(x = \\frac{5\\pi}{8}\\).",
+            "  - \\(k = 2\\): \\(x = \\frac{9\\pi}{8} > \\pi\\).",
+            "- Case 2: \\(1 + 2\\cos(2x) = 0\\), so \\(\\cos(2x) = -\\frac{1}{2}\\) when \\(2x = \\frac{2\\pi}{3} + 2k\\pi\\) or \\(2x = \\frac{4\\pi}{3} + 2k\\pi\\).",
+            "  - \\(x = \\frac{\\pi}{3} + k\\pi\\): \\(k = 0\\): \\(x = \\frac{\\pi}{3}\\), \\(k = 1\\): \\(x = \\frac{4\\pi}{3} > \\pi\\).",
+            "  - \\(x = \\frac{2\\pi}{3} + k\\pi\\): \\(k = 0\\): \\(x = \\frac{2\\pi}{3}\\).",
+            "Solutions: \\(x = \\frac{\\pi}{8}, \\frac{\\pi}{3}, \\frac{3\\pi}{8}, \\frac{5\\pi}{8}, \\frac{2\\pi}{3}\\)."
+        ]
+            },
+            {
+                question: "Solve \\(\\sin(x) + \\sin(2x) + \\sin(3x) + \\sin(4x) = 0\\) where \\(0 \\leq x \\leq \\pi\\).",
+        answer: "\\(x = 0, \\frac{2\\pi}{5}, \\frac{\\pi}{2}, \\frac{4\\pi}{5}, \\pi\\)",
+        solution: [
+            "Solve \\(\\sin(x) + \\sin(2x) + \\sin(3x) + \\sin(4x) = 0\\) for \\(0 \\leq x \\leq \\pi\\).",
+            "Group terms: \\(\\sin(x) + \\sin(4x)\\) and \\(\\sin(2x) + \\sin(3x)\\).",
+            "Use sum-to-product: \\(\\sin(x) + \\sin(4x) = 2\\sin\\left(\\frac{x + 4x}{2}\\right)\\cos\\left(\\frac{4x - x}{2}\\right) = 2\\sin\\left(\\frac{5x}{2}\\right)\\cos\\left(\\frac{3x}{2}\\right)\\).",
+            "Similarly, \\(\\sin(2x) + \\sin(3x) = 2\\sin\\left(\\frac{2x + 3x}{2}\\right)\\cos\\left(\\frac{3x - 2x}{2}\\right) = 2\\sin\\left(\\frac{5x}{2}\\right)\\cos\\left(\\frac{x}{2}\\right)\\).",
+            "Equation becomes: \\(2\\sin\\left(\\frac{5x}{2}\\right)\\cos\\left(\\frac{3x}{2}\\right) + 2\\sin\\left(\\frac{5x}{2}\\right)\\cos\\left(\\frac{x}{2}\\right) = 0\\).",
+            "Factor out \\(2\\sin\\left(\\frac{5x}{2}\\right)\\): \\(2\\sin\\left(\\frac{5x}{2}\\right)\\left(\\cos\\left(\\frac{3x}{2}\\right) + \\cos\\left(\\frac{x}{2}\\right)\\right) = 0\\).",
+            "So, \\(\\sin\\left(\\frac{5x}{2}\\right) = 0\\) or \\(\\cos\\left(\\frac{3x}{2}\\right) + \\cos\\left(\\frac{x}{2}\\right) = 0\\).",
+            "- Case 1: \\(\\sin\\left(\\frac{5x}{2}\\right) = 0\\) when \\(\\frac{5x}{2} = k\\pi\\), so \\(x = \\frac{2k\\pi}{5}\\).",
+            "  - For \\(0 \\leq x \\leq \\pi\\):",
+            "    - \\(k = 0\\): \\(x = 0\\).",
+            "    - \\(k = 1\\): \\(x = \\frac{2\\pi}{5}\\).",
+            "    - \\(k = 2\\): \\(x = \\frac{4\\pi}{5}\\).",
+            "    - \\(k = 3\\): \\(x = \\frac{6\\pi}{5} > \\pi\\).",
+            "- Case 2: \\(\\cos\\left(\\frac{3x}{2}\\right) + \\cos\\left(\\frac{x}{2}\\right) = 0\\).",
+            "  - Use sum-to-product: \\(\\cos\\left(\\frac{3x}{2}\\right) + \\cos\\left(\\frac{x}{2}\\right) = 2\\cos\\left(\\frac{\\frac{3x}{2} + \\frac{x}{2}}{2}\\right)\\cos\\left(\\frac{\\frac{3x}{2} - \\frac{x}{2}}{2}\\right) = 2\\cos(x)\\cos\\left(\\frac{x}{2}\\right) = 0\\).",
+            "  - So, \\(\\cos(x) = 0\\) or \\(\\cos\\left(\\frac{x}{2}\\right) = 0\\).",
+            "  - \\(\\cos(x) = 0\\) at \\(x = \\frac{\\pi}{2}\\).",
+            "  - \\(\\cos\\left(\\frac{x}{2}\\right) = 0\\) when \\(\\frac{x}{2} = \\frac{\\pi}{2} + k\\pi\\), so \\(x = \\pi + 2k\\pi\\), which gives \\(x = \\pi\\) for \\(k = 0\\).",
+            "Solutions: \\(x = 0, \\frac{2\\pi}{5}, \\frac{\\pi}{2}, \\frac{4\\pi}{5}, \\pi\\)."
+        ]
+            }
+        ];
+
+        function getRandomQuestions() {
+            const shuffled = questionBank.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 10);
+        }
+
+        function renderQuiz() {
+            const quizDiv = document.getElementById('quiz');
+            quizDiv.innerHTML = '';
+            const questions = getRandomQuestions();
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <p><strong>Question ${index + 1}:</strong> ${q.question}</p>
+                    <button onclick="showSolution(${index})">Show Solution</button>
+                    <div id="solution${index}" class="solution">
+                        <p><strong>Answer:</strong> ${q.answer}</p>
+                        <p><strong>Solution:</strong></p>
+                        <ul>
+                            ${q.solution.map(step => `<li>${step}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+                quizDiv.appendChild(questionDiv);
+            });
+            MathJax.typeset();
+        }
+
+        function showSolution(index) {
+            const solutionDiv = document.getElementById(`solution${index}`);
+            solutionDiv.style.display = solutionDiv.style.display === 'block' ? 'none' : 'block';
+            MathJax.typeset();
+        }
+
+        document.getElementById('tryAgain').addEventListener('click', renderQuiz);
+
+        // Initial render
+        renderQuiz();
+    </script>
+</body>
+</html>
